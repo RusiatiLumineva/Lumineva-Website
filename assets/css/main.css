@@ -543,6 +543,18 @@ h1 {
         gap: 15px;
         text-align: center;
     }
+    
+    /* Mengurangi ruang kosong yang terlalu luas di HP */
+    .main-footer {
+        padding: 60px 20px !important; /* Perkecil padding atas bawah */
+    }
+
+    /* Memastikan section di atas footer tidak memaksa tinggi layar penuh */
+    section, .hero-section {
+        height: auto !important;
+        min-height: auto !important;
+        padding-bottom: 50px;
+    }
 }
 
 /* Mobile Responsive */
