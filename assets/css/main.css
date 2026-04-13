@@ -532,9 +532,20 @@ h1 {
     }
 
     .footer-right {
-        /* Pastikan konten kanan (email & sosmed) ke tengah */
-        text-align: center;
-        align-items: center;
+        /* Memaksa konten yang tadinya rata kanan jadi ke tengah */
+        text-align: center !important;
+        align-items: center !important;
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* Memastikan dia mengambil seluruh lebar layar HP */
+    }
+
+    .social-links-footer {
+        /* Memastikan baris sosmed juga rata tengah */
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        margin-top: 20px;
     }
 
     .footer-meta-desktop {
@@ -543,7 +554,7 @@ h1 {
         gap: 15px;
         text-align: center;
     }
-    
+
     /* Mengurangi ruang kosong yang terlalu luas di HP */
     .main-footer {
         padding: 60px 20px !important; /* Perkecil padding atas bawah */
