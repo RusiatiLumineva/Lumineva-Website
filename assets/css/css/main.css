@@ -1,0 +1,1146 @@
+/* Base Style */
+:root {
+    --bg-main: #fcfbf9;
+    --bg-alt: #f7f5f2;
+    --text-dark: #2a2a2a;
+    --text-light: #6b6b6b;
+    --accent: #d4a373; /* Muted Gold */
+    --border-light: #eceae6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: #1a1a1a;
+    line-height: 1.8; /* Standar kenyamanan membaca */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Global Typography */
+/* 1. STANDAR KONTEN (H1, H2, H3) */
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; /* Sedikit lebih tebal agar terbaca di konten */
+    color: #1a1a1a;
+    letter-spacing: 1px; /* Jarak standar untuk judul artikel/layanan */
+    text-transform: none; /* Biarkan konten bisa huruf besar-kecil */
+}
+
+/* 2. IDENTITAS BRAND (LOGO) */
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; /* Tetap tipis agar mewah */
+    text-transform: uppercase; /* Wajib kapital untuk kesan formal */
+    letter-spacing: 5px; /* Jarak lebar adalah kunci "Luxury Brand" */
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+}
+
+/* 3. KHUSUS DISPLAY SERIF (JUDUL HERO) */
+/* Ini untuk h1 yang ada di bagian paling atas Home/About/Offerings */
+.display-serif {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1;
+}
+
+/* Paragraph & List (Inter) - Untuk Kejelasan & Kebersihan Visual */
+p, .sans-text, .service-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem; /* Ukuran standar di semua halaman */
+    font-weight: 300; /* Bobot ringan yang luxury */
+    color: #555;
+    letter-spacing: 0.2px;
+}
+
+.container { max-width: 1200px; margin: 0 auto; width: 90%; }
+.section-padding { padding: 120px 0; }
+.center { text-align: center; }
+.bg-soft { background-color: var(--bg-alt); }
+
+/* Navigation */
+.navbar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 8%; /* Reduced padding slightly for a sleeker sticky look */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(252, 251, 249, 0.85); /* Semi-transparent off-white */
+    backdrop-filter: blur(15px); /* This creates the luxury 'frosted glass' look */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(236, 234, 230, 0.5); /* Very faint bottom line */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; /* Tidak perlu besar, kecil justru lebih mewah */
+    letter-spacing: 5px; /* Jarak huruf adalah kunci kemewahan */
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+}
+.logo-img {
+    height: 40px; /* Adjust this height to fit your navbar perfectly */
+    width: auto;  /* Keeps the aspect ratio */
+    display: block;
+    transition: opacity 0.3s ease;
+}
+.logo-img:hover {
+    opacity: 0.8;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none; /* This REMOVES the dots */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li { 
+    margin-left: 45px; /* Wider spacing for a more 'expensive' feel */
+    position: relative;
+}
+
+.nav-links li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem; /* Small font size is a hallmark of luxury design */
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Extra breathing room between letters */
+    opacity: 0.8; /* Slightly muted by default */
+    position: relative;
+    transition: color 0.3s ease;
+}
+/* If you add class="active" to your HTML link */
+.nav-links a.active {
+    opacity: 1;
+    font-weight: 500;
+    border-bottom: 1px solid var(--accent);
+}
+
+/* Hover State */
+.nav-links a:hover { 
+    opacity: 1; /* Brightens up when hovered */
+    color: var(--accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent); /* Warna gold mu */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Garis memanjang perlahan saat disentuh */
+}
+
+/* Hero Section */
+.hero-section {
+    /* Hapus height: 80vh; Hapus display: flex; */
+    padding: 220px 0 120px; 
+    text-align: center;
+    background-color: #fff; /* Pastikan bersih */
+}
+
+.hero-content {
+    max-width: 800px; /* Membatasi lebar teks agar tidak meluber ke samping */
+    margin: 0 auto; /* Menengahkan kontainer secara horizontal */
+}
+
+.display-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; /* Besar tapi tipis */
+    line-height: 1.1;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+.display-serif em {
+    display: block;            /* Membuat teks miring berada di baris baru */
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 3.5rem;         /* Menjaga ukuran tetap besar dan megah */
+    text-transform: none;      /* Tetap huruf kecil agar terlihat organik/puitis */
+    color: var(--accent);      /* Menggunakan warna emas yang sama dengan About/Offerings */
+    opacity: 0.9;              /* Sedikit transparan agar terlihat halus */
+    margin-top: 10px;          /* Memberi sedikit jarak dari baris atasnya */
+}
+
+.hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    max-width: 550px; /* Membatasi lebar agar teks menumpuk rapi di tengah */
+    margin: 0 auto 40px;
+    line-height: 1.8;
+    color: #666;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+
+/* CTA yang tipis dan elegan */
+.cta-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.cta-link:hover {
+    opacity: 0.6;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 30px;
+}
+
+.hero-desc {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    color: var(--text-light);
+}
+
+/* Luxury Button */
+.btn-luxury {
+    display: inline-block;
+    padding: 18px 40px;
+    border: 1px solid var(--text-dark);
+    text-decoration: none;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.7rem;
+    transition: 0.4s ease;
+}
+
+.btn-luxury:hover {
+    background: var(--text-dark);
+    color: #fff;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+/* Grids */
+.grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+}
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Cards & Service Boxes */
+.card-num {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.value-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.value-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 300;
+}
+
+.service-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    transition: 0.4s;
+}    
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+}
+.service-img {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+}
+.service-info {
+    padding: 45px;
+}
+.btn-text {
+    text-decoration: none;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: all 0.3s ease; /* Tambahkan ini untuk animasi halus */
+    cursor: pointer;
+}
+.btn-text:hover {
+    color: #1a1a1a; /* Warna berubah jadi hitam/gelap */
+    letter-spacing: 3px; /* Huruf sedikit merenggang */
+    transform: translateX(5px); /* Sedikit bergeser ke kanan */
+}
+
+.btn-text:hover::after {
+    margin-left: 15px; /* Garis atau panah setelah teks sedikit menjauh */
+    transition: all 0.4s ease;
+}
+
+/* Stories Large Text */
+.large-text {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: var(--text-light);
+}
+
+/* Menambah ruang napas antar bagian di Home */
+.home-intro-section {
+    padding: 150px 0; /* Memberi ruang lebih lega */
+    background-color: #fff;
+}
+
+.home-intro-section h2 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+}
+
+/* =========================================
+   REFINED LUXURY FOOTER CSS
+   ========================================= */
+
+.main-footer {
+    /* Gunakan warna Charcoal yang sangat dalam untuk kesan mewah */
+    background-color: #1a1a1a; 
+    color: #e0dcd5; /* Teks off-white agar tidak terlalu kontras */
+    padding: 180px 10% 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background ornament (opsional: tekstur halus) */
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 80%);
+    pointer-events: none;
+}
+
+.main-footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+    pointer-events: none;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr; /* Kolom kiri - Garis tengah - Kolom kanan */
+    gap: 80px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Garis Pemisah Vertikal */
+.vertical-line {
+    width: 1px;
+    height: 120px; /* Batasi tingginya agar tidak memotong dari atas ke bawah */
+    background: linear-gradient(to bottom, transparent, rgba(224, 220, 213, 0.15), transparent);
+    align-self: center; /* Menjaga garis tetap di tengah secara vertikal */
+}
+
+/* Sisi Kiri */
+.logo-footer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; /* Sedikit dikecilkan agar lebih classy */
+    letter-spacing: 12px; /* Ditambah jaraknya */
+    line-height: 1.2; /* Merapatkan baris atas dan bawah */
+    margin-bottom: 20px;
+    color: #f4f1ea;
+    font-weight: 300;
+}
+
+.footer-tagline {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #a09d98;
+    letter-spacing: 1px;
+    max-width: 250px;
+}
+
+/* Sisi Kanan */
+.footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.eyebrow {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #7a7772; /* Warna lebih gelap agar tenggelam */
+    margin-bottom: 30px;
+}
+
+.footer-email {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; /* Sangat besar dan anggun */
+    color: #d4af37; /* Warna Muted Gold */
+    text-decoration: none;
+    font-style: italic;
+    transition: all 0.5s ease;
+    line-height: 1;
+}
+
+.footer-email:hover {
+    color: #f4f1ea;
+    letter-spacing: 1px;
+}
+
+.contact-sub {
+    font-size: 0.8rem;
+    color: #7a7772;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+.social-links-footer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem; /* Kecil dan elegan */
+    letter-spacing: 3px; /* Jarak antar huruf yang lebar */
+    color: #888; /* Warna abu-abu yang tenang */
+    text-align: right;
+    margin-top: 60px; /* Ruang napas di bawah teks 'Interested in exploring...' */
+}
+
+.social-links-footer a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.4s ease;
+}
+
+.social-links-footer a:hover {
+    color: var(--accent); /* Berubah emas saat disentuh */
+}
+
+.social-links-footer .separator {
+    margin: 0 15px; /* Jarak yang lebar di kiri-kanan garis pemisah */
+    color: #444; /* Garis pemisah sedikit lebih gelap agar tidak mengganggu teks */
+    font-weight: 300;
+}
+
+/* Meta & Copyright */
+.footer-meta-desktop {
+    grid-column: span 3; 
+    margin-top: 120px; /* Jarak ditambah */
+    padding-top: 40px;
+    border-top: 1px solid rgba(224, 220, 213, 0.03); /* Garis sangat transparan */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem; /* Lebih kecil */
+    color: #444; /* Lebih gelap agar hampir menyatu dengan background */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-grid {
+        /* Ubah grid 3 kolom menjadi 1 kolom saja */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .vertical-line {
+        /* Sembunyikan garis vertikal di HP karena sudah tumpuk atas-bawah */
+        display: none;
+    }
+
+    .footer-right {
+        /* Pastikan konten kanan (email & sosmed) ke tengah */
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-meta-desktop {
+        /* Pastikan bagian copyright di paling bawah juga rapi */
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .grid-three, .grid-two, .footer-top { grid-template-columns: 1fr; gap: 50px; }
+    .footer-top { flex-direction: column; }
+}
+
+
+/* About Page Specifics */
+.about-hero {
+    padding: 180px 0 100px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.display-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.8rem; 
+    letter-spacing: 3px; 
+    line-height: 1.1;
+    text-transform: uppercase; 
+    font-weight: 300;
+}
+
+.display-serif em {
+    font-style: italic;
+    color: var(--accent); /* Warna emas redup */
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.about-image-container {
+    position: relative;
+}
+
+.about-img {
+    width: 100%;
+    filter: sepia(20%) contrast(105%); /* Memberikan kesan vintage luxury */
+    transition: 0.6s ease;
+}
+
+.img-caption {
+    margin-top: 15px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+.about-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.about-text p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.personal-note {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: #fcfbf9;
+    border-left: 1px solid var(--accent);
+}
+
+.personal-note h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.about-quote-section {
+    padding: 150px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.large-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #1a1a1a;
+    opacity: 0.8;
+}
+
+/* --- Personal Note Section (Version: Photo on Right) --- */
+.personal-note-section {
+    padding: 160px 0;
+    background-color: #fafafa;
+    border-top: 1px solid #f0f0f0; /* Garis pemisah yang sangat halus */
+}
+
+.personal-note-wrapper.text-first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.note-text {
+    flex: 1.2;
+    max-width: 600px;
+}
+
+.note-text .eyebrow {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 25px;
+}
+
+.note-text h3 {
+    font-size: 2.8rem; /* Ukuran pas untuk heading di bawah */
+    line-height: 1.2;
+    margin-bottom: 35px;
+}
+
+.note-text p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.9; /* Memberikan ruang napas antar baris */
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.note-image {
+    flex: 1;
+    max-width: 480px;
+    /* Memberikan sedikit bayangan sangat halus agar foto tidak 'flat' */
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.03));
+}
+
+.note-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tombol CTA Emas */
+.cta-link-gold {
+    display: inline-block;
+    margin-top: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.cta-link-gold:hover {
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--accent);
+}
+
+/* Responsif untuk HP */
+@media (max-width: 992px) {
+    .personal-note-wrapper.text-first {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .personal-note-wrapper.text-first {
+        flex-direction: column;
+        text-align: center;
+    }
+    .note-text {
+        order: 1; /* Teks tetap di atas */
+    }
+    .note-image {
+        order: 2; /* Foto di bawah teks di mobile */
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; gap: 40px; }
+    .display-serif { font-size: 2.5rem; }
+}
+
+/* Offerings Styling */
+.offerings-hero {
+    padding: 180px 0 80px;
+    text-align: center;
+}
+
+.services-grid {
+    padding-bottom: 150px;
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    padding: 80px 0;
+    border-top: 1px solid rgba(0,0,0,0.05); /* Garis pemisah yang sangat halus */
+}
+
+.service-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--accent);
+    padding-top: 10px;
+}
+
+.service-content h2 {
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.service-intro {
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.service-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Membagi list jadi 2 kolom agar rapi */
+    gap: 12px 40px;
+}
+
+.service-list li {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: none;
+    padding-left: 25px;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.service-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.4;
+}
+
+.cta-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+.cta-link:hover {
+    letter-spacing: 4px;
+    opacity: 0.7;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .service-item { grid-template-columns: 1fr; gap: 20px; }
+    .service-list { grid-template-columns: 1fr; }
+}
+
+/* Contact Page Specific */
+.container-small {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-hero {
+    padding: 180px 0 60px;
+    text-align: center;
+}
+
+.contact-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Luxury Form Elements */
+.luxury-form {
+    padding-bottom: 150px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.input-group {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.luxury-form input, 
+.luxury-form select, 
+.luxury-form textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #eee; /* Garis sangat tipis */
+    padding: 10px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    background: transparent;
+    transition: border-color 0.4s ease;
+    border-radius: 0;
+}
+
+.luxury-form input:focus, 
+.luxury-form select:focus, 
+.luxury-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid var(--accent); /* Berubah jadi emas saat diklik */
+}
+
+/* Tombol Kirim */
+.btn-submit {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-submit:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* Journal Styling */
+.container-journal {
+    max-width: 850px; /* Lebih lebar dari form contact, tapi tetap fokus */
+    margin: 0 auto;
+    padding: 0 20px 150px;
+}
+
+.stories-hero {
+    padding: 180px 0 100px;
+    text-align: center;
+}
+
+.journal-entry {
+    margin-bottom: 120px; /* Jarak antar artikel yang sangat lega */
+    text-align: left;
+}
+
+.entry-image {
+    width: 100%;
+    height: 400px; /* Ukuran yang konsisten untuk semua kartu artikel */
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.entry-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1); /* Zoom yang sangat lambat dan mewah */
+}
+
+.journal-entry:hover .entry-image img {
+    transform: scale(1.05); /* Gambar sedikit membesar */
+}
+
+.entry-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.entry-meta .category {
+    margin-left: 15px;
+    color: var(--accent); /* Warna emas sebagai aksen category */
+}
+
+.entry-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.entry-title a {
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: opacity 0.3s;
+}
+
+.entry-excerpt {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* --- Success Page Styling --- */
+.success-hero {
+    padding: 200px 0 150px; /* Ruang sangat lega di atas */
+    text-align: center;
+    min-height: 60vh; /* Memastikan konten berada di tengah layar */
+    display: flex;
+    align-items: center;
+}
+
+.success-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.success-message {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #666;
+    margin: 40px 0;
+}
+
+.success-actions {
+    margin-top: 50px;
+}
+
+.success-actions .separator {
+    margin: 0 20px;
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Menggunakan kembali style CTA Gold yang sudah kita buat */
+.success-actions .cta-link-gold {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.success-actions .cta-link-gold:hover {
+    color: #1a1a1a;
+}
+
+/* --- Post Detail Layout --- */
+.container-narrow {
+    max-width: 750px; /* Lebar teks yang ideal untuk membaca */
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.post-header {
+    padding-top: 150px;
+    text-align: center;
+}
+
+.post-header h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 30px 0 60px;
+}
+
+.post-hero-image {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.post-hero-image img {
+    width: 100%;
+    max-width: 100%; /* Memastikan gambar tidak pecah melewati container */
+    height: auto;    /* Mengikuti proporsi asli gambar agar tidak terlihat 'gepeng' */
+    object-fit: cover; /* Menjaga estetika pemotongan gambar yang rapi */
+}
+
+/* --- Typography Detail --- */
+.post-body {
+    font-family: 'Inter', sans-serif;
+    line-height: 2;
+    color: #444;
+    font-weight: 300;
+}
+
+.post-body p {
+    margin-bottom: 35px;
+}
+
+.dropcap::first-letter {
+    font-family: 'Tenor Sans', serif;
+    float: left;
+    font-size: 5rem;
+    line-height: 0.8;
+    padding-right: 15px;
+    color: var(--accent);
+}
+
+.poetic-quote {
+    font-family: 'Tenor Sans', serif;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin: 70px 0;
+    padding-left: 40px;
+    border-left: 1px solid var(--accent);
+    font-style: italic;
+}
+
+.emphasis-text {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.post-conclusion {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+    font-weight: 400;
+}
+
+.post-footer {
+    margin-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #999;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
