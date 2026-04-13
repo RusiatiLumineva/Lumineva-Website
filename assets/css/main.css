@@ -532,20 +532,27 @@ h1 {
     }
 
     .footer-right {
-        /* Memaksa konten yang tadinya rata kanan jadi ke tengah */
         text-align: center !important;
         align-items: center !important;
         display: flex;
-        flex-direction: column;
-        width: 100%; /* Memastikan dia mengambil seluruh lebar layar HP */
+        flex-direction: column-reverse; /* Ini akan menukar urutan agar teks dulu baru email */
+        width: 100%;
+        padding: 0 20px; /* Memberi ruang di kiri-kanan agar email tidak mentok layar */
+    }
+
+    .footer-mail {
+        font-size: 1.2rem !important; /* Perkecil ukuran email khusus di HP agar muat satu baris */
+        word-wrap: break-word;
+        margin-top: 10px;
+        display: block;
+        width: 100%;
     }
 
     .social-links-footer {
-        /* Memastikan baris sosmed juga rata tengah */
-        justify-content: center;
+        justify-content: center !important;
+        margin-top: 30px;
         display: flex;
-        width: 100%;
-        margin-top: 20px;
+        flex-wrap: wrap; /* Agar Instagram & LinkedIn bisa turun kalau layar terlalu sempit */
     }
 
     .footer-meta-desktop {
@@ -553,6 +560,8 @@ h1 {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        margin-top: 40px !important; /* Mengurangi jarak kosong yang terlalu jauh tadi */
+    }
     }
 
     /* Mengurangi ruang kosong yang terlalu luas di HP */
