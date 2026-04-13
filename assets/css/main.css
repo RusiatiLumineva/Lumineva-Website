@@ -535,24 +535,31 @@ h1 {
         text-align: center !important;
         align-items: center !important;
         display: flex;
-        flex-direction: column-reverse; /* Ini akan menukar urutan agar teks dulu baru email */
+        flex-direction: column-reverse; 
         width: 100%;
-        padding: 0 20px; /* Memberi ruang di kiri-kanan agar email tidak mentok layar */
+        padding: 0 15px;
+        gap: 10px; /* Memberi jarak otomatis antar teks agar tidak menumpuk */
     }
 
     .footer-mail {
-        font-size: 1.2rem !important; /* Perkecil ukuran email khusus di HP agar muat satu baris */
-        word-wrap: break-word;
-        margin-top: 10px;
-        display: block;
-        width: 100%;
+        /* Perkecil sedikit lagi agar pas di layar HP dan tidak menabrak teks lain */
+        font-size: 1rem !important; 
+        color: #d89a7e !important; /* Menggunakan warna earthy brand kamu */
+        text-decoration: none;
+        margin-bottom: 5px;
+        word-break: break-all; /* Agar jika sangat panjang, email tetap dalam kotak */
+    }
+
+    .contact-sub {
+        margin-top: 15px !important;
+        letter-spacing: 2px;
+        font-size: 0.7rem;
     }
 
     .social-links-footer {
         justify-content: center !important;
-        margin-top: 30px;
-        display: flex;
-        flex-wrap: wrap; /* Agar Instagram & LinkedIn bisa turun kalau layar terlalu sempit */
+        margin-top: 25px;
+        gap: 15px; /* Memberi jarak antara Instagram dan LinkedIn */
     }
 
     .footer-meta-desktop {
