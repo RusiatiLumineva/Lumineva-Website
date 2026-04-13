@@ -1183,3 +1183,10 @@ h1 {
 .back-link:hover {
     color: var(--accent);
 }
+
+.lang-switch {
+    margin-left: 25px; /* Memberi jarak di sebelah kiri teks EN */
+    padding-left: 15px;
+    border-left: 1px solid #ccc; /* Opsional: memberi garis tipis pemisah agar lebih elegan */
+    text-decoration: none;
+}
