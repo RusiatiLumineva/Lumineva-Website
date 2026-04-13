@@ -519,12 +519,29 @@ h1 {
 /* Responsive */
 @media (max-width: 768px) {
     .footer-grid {
+        /* Ubah grid 3 kolom menjadi 1 kolom saja */
+        display: flex;
         flex-direction: column;
-        gap: 60px;
+        gap: 40px;
+        text-align: center;
     }
+
+    .vertical-line {
+        /* Sembunyikan garis vertikal di HP karena sudah tumpuk atas-bawah */
+        display: none;
+    }
+
     .footer-right {
-        align-items: flex-start;
-        text-align: left;
+        /* Pastikan konten kanan (email & sosmed) ke tengah */
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-meta-desktop {
+        /* Pastikan bagian copyright di paling bawah juga rapi */
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
     }
 }
 
