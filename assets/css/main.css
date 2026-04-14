@@ -2,9 +2,9 @@
 :root {
     --bg-main: #fcfbf9;
     --bg-alt: #f7f5f2;
-    --text-dark: #2a2a2a;
-    --text-light: #6b6b6b;
-    --accent: #d4a373; /* Muted Gold */
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --accent: #d89a7e; /* Muted Gold */
     --border-light: #eceae6;
 }
 
@@ -24,6 +24,30 @@ body {
 
 /* Global Typography */
 /* 1. STANDAR KONTEN (H1, H2, H3) */
+/* --- Paket Judul Utama --- */
+.display-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 8vw, 4rem); 
+    line-height: 1.1;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+/* Teks miring di bawah judul utama */
+.display-serif em {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85em; /* Sedikit lebih kecil dari judul utamanya agar elegan */
+    text-transform: none; /* Biarkan huruf kecil agar puitis */
+    color: var(--accent);
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
 h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400; /* Sedikit lebih tebal agar terbaca di konten */
@@ -41,15 +65,11 @@ h1, h2, h3 {
     text-decoration: none;
     color: #1a1a1a;
     font-size: 1.1rem;
+    transition: opacity 0.3s ease;
 }
 
-/* 3. KHUSUS DISPLAY SERIF (JUDUL HERO) */
-/* Ini untuk h1 yang ada di bagian paling atas Home/About/Offerings */
-.display-serif {
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    line-height: 1.1;
+.logo:hover {
+    opacity: 0.7;
 }
 
 /* Paragraph & List (Inter) - Untuk Kejelasan & Kebersihan Visual */
@@ -84,20 +104,6 @@ p, .sans-text, .service-list li {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navbar .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem; /* Tidak perlu besar, kecil justru lebih mewah */
-    letter-spacing: 5px; /* Jarak huruf adalah kunci kemewahan */
-    text-transform: uppercase;
-    font-weight: 300;
-    color: #1a1a1a;
-    text-decoration: none;
-}
-
-.logo {
-    font-size: 1.2rem;
-    letter-spacing: 6px;
-}
 .logo-img {
     height: 40px; /* Adjust this height to fit your navbar perfectly */
     width: auto;  /* Keeps the aspect ratio */
@@ -183,28 +189,6 @@ p, .sans-text, .service-list li {
 .hero-content {
     max-width: 800px; /* Membatasi lebar teks agar tidak meluber ke samping */
     margin: 0 auto; /* Menengahkan kontainer secara horizontal */
-}
-
-.display-serif {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem; /* Besar tapi tipis */
-    line-height: 1.1;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #1a1a1a;
-    margin-bottom: 30px;
-}
-
-.display-serif em {
-    display: block;            /* Membuat teks miring berada di baris baru */
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 3.5rem;         /* Menjaga ukuran tetap besar dan megah */
-    text-transform: none;      /* Tetap huruf kecil agar terlihat organik/puitis */
-    color: var(--accent);      /* Menggunakan warna emas yang sama dengan About/Offerings */
-    opacity: 0.9;              /* Sedikit transparan agar terlihat halus */
-    margin-top: 10px;          /* Memberi sedikit jarak dari baris atasnya */
 }
 
 .hero-sub {
@@ -516,100 +500,11 @@ h1 {
     letter-spacing: 3px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-grid {
-        /* Ubah grid 3 kolom menjadi 1 kolom saja */
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .vertical-line {
-        /* Sembunyikan garis vertikal di HP karena sudah tumpuk atas-bawah */
-        display: none;
-    }
-
-    .footer-right {
-        text-align: center !important;
-        align-items: center !important;
-        display: flex;
-        flex-direction: column-reverse; 
-        width: 100%;
-        padding: 0 15px;
-        gap: 10px; /* Memberi jarak otomatis antar teks agar tidak menumpuk */
-    }
-
-    .footer-mail {
-        /* Perkecil sedikit lagi agar pas di layar HP dan tidak menabrak teks lain */
-        font-size: 1rem !important; 
-        color: #d89a7e !important; /* Menggunakan warna earthy brand kamu */
-        text-decoration: none;
-        margin-bottom: 5px;
-        word-break: break-all; /* Agar jika sangat panjang, email tetap dalam kotak */
-    }
-
-    .contact-sub {
-        margin-top: 15px !important;
-        letter-spacing: 2px;
-        font-size: 0.7rem;
-    }
-
-    .social-links-footer {
-        justify-content: center !important;
-        margin-top: 25px;
-        gap: 15px; /* Memberi jarak antara Instagram dan LinkedIn */
-    }
-
-    .footer-meta-desktop {
-        /* Pastikan bagian copyright di paling bawah juga rapi */
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        margin-top: 40px !important; /* Mengurangi jarak kosong yang terlalu jauh tadi */
-    }
-    }
-
-    /* Mengurangi ruang kosong yang terlalu luas di HP */
-    .main-footer {
-        padding: 60px 20px !important; /* Perkecil padding atas bawah */
-    }
-
-    /* Memastikan section di atas footer tidak memaksa tinggi layar penuh */
-    section, .hero-section {
-        height: auto !important;
-        min-height: auto !important;
-        padding-bottom: 50px;
-    }
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .grid-three, .grid-two, .footer-top { grid-template-columns: 1fr; gap: 50px; }
-    .footer-top { flex-direction: column; }
-}
-
-
 /* About Page Specifics */
 .about-hero {
     padding: 180px 0 100px;
     background-color: #fff;
     text-align: center;
-}
-
-.display-serif {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.8rem; 
-    letter-spacing: 3px; 
-    line-height: 1.1;
-    text-transform: uppercase; 
-    font-weight: 300;
-}
-
-.display-serif em {
-    font-style: italic;
-    color: var(--accent); /* Warna emas redup */
 }
 
 .grid-2 {
@@ -755,34 +650,6 @@ h1 {
     border-bottom: 1px solid var(--accent);
 }
 
-/* Responsif untuk HP */
-@media (max-width: 992px) {
-    .personal-note-wrapper.text-first {
-        gap: 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .personal-note-wrapper.text-first {
-        flex-direction: column;
-        text-align: center;
-    }
-    .note-text {
-        order: 1; /* Teks tetap di atas */
-    }
-    .note-image {
-        order: 2; /* Foto di bawah teks di mobile */
-        max-width: 80%;
-        margin: 0 auto;
-    }
-}
-
-/* Responsif untuk HP */
-@media (max-width: 768px) {
-    .grid-2 { grid-template-columns: 1fr; gap: 40px; }
-    .display-serif { font-size: 2.5rem; }
-}
-
 /* Offerings Styling */
 .offerings-hero {
     padding: 180px 0 80px;
@@ -862,12 +729,6 @@ h1 {
 .cta-link:hover {
     letter-spacing: 4px;
     opacity: 0.7;
-}
-
-/* Responsif */
-@media (max-width: 768px) {
-    .service-item { grid-template-columns: 1fr; gap: 20px; }
-    .service-list { grid-template-columns: 1fr; }
 }
 
 /* Contact Page Specific */
@@ -960,10 +821,6 @@ h1 {
     color: #999;
     font-style: italic;
     margin-top: 20px;
-}
-
-@media (max-width: 768px) {
-    .form-row { grid-template-columns: 1fr; gap: 0; }
 }
 
 /* Journal Styling */
@@ -1115,7 +972,7 @@ h1 {
 .post-hero-image img {
     width: 100%;
     max-width: 100%; /* Memastikan gambar tidak pecah melewati container */
-    height: auto;    /* Mengikuti proporsi asli gambar agar tidak terlihat 'gepeng' */
+    height: 100%;    /* Mengikuti proporsi asli gambar agar tidak terlihat 'gepeng' */
     object-fit: cover; /* Menjaga estetika pemotongan gambar yang rapi */
 }
 
@@ -1189,4 +1046,63 @@ h1 {
     padding-left: 15px;
     border-left: 1px solid #ccc; /* Opsional: memberi garis tipis pemisah agar lebih elegan */
     text-decoration: none;
+}
+
+/* =========================================
+   PUSAT KENDALI MOBILE (768px ke bawah)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* Navbar & Menu (Solusi Terpotong) */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Menu akan turun ke bawah jika layar sempit */
+        justify-content: center;
+        gap: 12px;
+        margin-top: 15px;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 5px 8px; /* Jarak pas untuk jari di HP */
+    }
+
+    /* Hapus garis vertikal yang mengganggu di HP */
+    .nav-links li:not(:last-child)::after, 
+    .lang-switch-mobile {
+        border-left: none !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    /* Tipografi (Agar tidak meluber) */
+    .display-serif { 
+        font-size: 2.2rem !important; 
+        letter-spacing: 2px !important;
+    }
+    
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.6rem !important; }
+
+    /* Layout (Grid jadi 1 kolom semua) */
+    .grid-three, .grid-two, .footer-grid, .grid-2, .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    /* Footer & Elemen Lain */
+    .footer-right {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    .vertical-line { display: none; }
+    
+    .section-padding { padding: 60px 0; } /* Ruang antar bagian lebih rapat di HP */
 }
