@@ -54,6 +54,7 @@ h1, h2, h3 {
     color: #1a1a1a;
     letter-spacing: 1px; /* Jarak standar untuk judul artikel/layanan */
     text-transform: none; /* Biarkan konten bisa huruf besar-kecil */
+    margin-bottom: 20px; /* Tambahkan margin bawah standar */
 }
 
 /* 2. IDENTITAS BRAND (LOGO) */
@@ -136,6 +137,13 @@ p, .sans-text, .service-list li {
     width: 1px;
     height: 10px;
     background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Perbaikan Navigasi agar EN/ID tidak berantakan --- */
+.nav-links li.lang-switch-mobile {
+    margin-left: 25px; 
+    padding-left: 15px;
+    border-left: 1px solid rgba(0,0,0,0.1); /* Garis pemisah tipis di desktop */
 }
 
 .nav-links a {
@@ -225,11 +233,6 @@ p, .sans-text, .service-list li {
     letter-spacing: 5px;
     color: var(--text-light);
     margin-bottom: 25px;
-}
-
-h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 30px;
 }
 
 .hero-desc {
@@ -1081,6 +1084,12 @@ h1 {
         padding-left: 0 !important;
     }
 
+    .nav-links li.lang-switch-mobile {
+        border-left: none !important;
+        margin-left: 8px !important; /* Samakan dengan menu lain di HP */
+        padding-left: 0 !important;
+    }
+    
     /* Tipografi (Agar tidak meluber) */
     .display-serif { 
         font-size: 2.2rem !important; 
