@@ -1111,12 +1111,50 @@ p, .sans-text, .service-list li {
     }
 
     /* Footer & Elemen Lain */
+    @media (max-width: 768px) {
+    /* 1. Ubah grid footer menjadi satu kolom agar tidak meluber */
+    .footer-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 40px !important;
+    }
+
+    /* 2. Pastikan sisi kanan footer (email/sosmed) berada di tengah */
     .footer-right {
         text-align: center !important;
         align-items: center !important;
+        width: 100% !important;
     }
-    
-    .vertical-line { display: none; }
+
+    /* 3. Sesuaikan ukuran font email agar pas di layar HP */
+    .footer-email {
+        font-size: 1.6rem !important; /* Perkecil sedikit agar tidak terpotong */
+        word-wrap: break-word;
+        display: block;
+        width: 100%;
+    }
+
+    /* 4. Atur ulang sosmed agar rapi di tengah */
+    .social-links-footer {
+        text-align: center !important;
+        margin-top: 30px !important;
+        width: 100%;
+    }
+
+    /* 5. Hilangkan garis vertikal dekoratif karena mengganggu layout mobile */
+    .vertical-line {
+        display: none !important;
+    }
+
+    /* 6. Meta footer (copyright) diatur ke tengah */
+    .footer-meta-desktop {
+        flex-direction: column !important;
+        gap: 15px;
+        text-align: center !important;
+        margin-top: 60px !important;
+    }
     
     .section-padding { padding: 60px 0; } /* Ruang antar bagian lebih rapat di HP */
 }
