@@ -1130,9 +1130,11 @@ p, .sans-text, .service-list li {
 
     /* 3. Sesuaikan ukuran font email agar pas di layar HP */
     .footer-email {
-        font-size: 1.6rem !important; /* Perkecil sedikit agar tidak terpotong */
+        font-size: 1.4rem !important; /* Perkecil sedikit agar tidak terpotong */
+        letter-spacing: 0.5px !important; /* Rapatkan sedikit jarak antar huruf */
         word-wrap: break-word;
-        display: block;
+        display: inline-block;
+        word-break: break-all; /* Jaga-jaga jika tetap tidak muat agar terpotong rapi */
         width: 100%;
     }
 
