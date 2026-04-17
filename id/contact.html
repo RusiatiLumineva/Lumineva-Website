@@ -45,47 +45,46 @@
             </div>
         </section>
 
-        <section class="contact-form-section">
-            <div class="container-small">
-                <form action="https://api.web3forms.com/submit" method="POST" class="luxury-form">
-    				<input type="hidden" name="access_key" value="6aa3ad60-fcbc-4a6f-bbab-29e14036c953">
-					<input type="hidden" name="redirect" value="https://luminevaaurorae.com/id/success.html">
-					<input type="hidden" name="subject" value="Kontak Baru - Lumineva (Bahasa Indonesia)">
-					
-                    <div class="form-row">
-                        <div class="input-group">
-                            <label>Nama Anda</label>
-                            <input type="text" placeholder="Bagaimana saya dapat menyapa Anda?">
-                        </div>
-                        <div class="input-group">
-                            <label>Alamat Email</label>
-                            <input type="email" placeholder="Di mana saya bisa menghubungi Anda?">
-                        </div>
-                    </div>
+    	<section class="contact-form-section">
+    		<div class="container-small">
+        		<form action="https://api.web3forms.com/submit" method="POST" class="luxury-form">
+            		<input type="hidden" name="access_key" value="6aa3ad60-fcbc-4a6f-bbab-29e14036c953">
+            		<input type="hidden" name="redirect" value="https://luminevaaurorae.com/id/success.html">
+            		<input type="hidden" name="subject" value="Kontak Baru - Lumineva (Bahasa Indonesia)">
+            
+            		<div class="form-row">
+                		<div class="input-group">
+                    		<label>Nama Anda</label>
+                    		<input type="text" name="name" placeholder="Bagaimana saya dapat menyapa Anda?" required>
+                		</div>
+                		<div class="input-group">
+                    		<label>Alamat Email</label>
+                    		<input type="email" name="email" placeholder="Di mana saya bisa menghubungi Anda?" required>
+                		</div>
+            		</div>
 
-                    <div class="input-group">
-                        <label>Layanan mana yang Anda minati?</label>
-                        <select>
-                            <option value="" disabled selected>Pilih layanan...</option>
-                            <option value="partnership">Kemitraan Kreatif & Sistem</option>
-                            <option value="clarity">Sesi Kejelasan Terfokus</option>
-                            <option value="custom">Kolaborasi Khusus</option>
-                        </select>
-                    </div>
+            		<div class="input-group">
+                		<label>Layanan mana yang Anda minati?</label>
+                		<select name="service" required>
+                    		<option value="" disabled selected>Pilih layanan...</option>
+                    		<option value="partnership">Kemitraan Kreatif & Sistem</option>
+                    		<option value="clarity">Sesi Kejelasan Terfokus</option>
+                    		<option value="custom">Kolaborasi Khusus</option>
+                		</select>
+            		</div>
 
-                    <div class="input-group">
-                        <label>Ceritakan tentang Visi Anda</label>
-                        <textarea rows="5" placeholder="Apa yang sedang Anda bangun, dan di bagian mana Anda membutuhkan dukungan?"></textarea>
-                    </div>
+            		<div class="input-group">
+                		<label>Ceritakan tentang Visi Anda</label>
+                		<textarea name="message" rows="5" placeholder="Apa yang sedang Anda bangun?" required></textarea>
+            		</div>
 
-                        <div class="form-footer">
-                            <button type="submit" class="btn-submit">Kirim Permintaan</button>
-                            <p class="form-note">Harap menunggu balasan dalam waktu 48 jam.</p>
-                        </div>
-                    </form> 
-                </form>
-            </div>
-        </section>
+            		<div class="form-footer">
+                		<button type="submit" class="btn-submit">Kirim Permintaan</button>
+                		<p class="form-note">Harap menunggu balasan dalam waktu 48 jam.</p>
+            		</div>
+        		</form> 
+    		</div>
+		</section>
     </main>
 
 		<!-- Footer -->
