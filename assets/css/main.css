@@ -1092,11 +1092,13 @@ p, .sans-text, .service-list li {
 /* Responsif untuk Mobile */
 @media (max-width: 768px) {
     .share-links-wrapper {
-        flex-direction: column;
-        gap: 10px;
+        flex-wrap: wrap; /* Agar tombol bisa turun ke baris baru jika tidak muat */
+        gap: 10px 20px;
+        max-width: 300px;
+        margin: 20px auto 0;
     }
     .dot-separator {
-        display: none; /* Sembunyikan titik di mobile agar rapi ke bawah */
+        display: none; /* Sembunyikan titik di mobile agar lebih bersih */
     }
 }
 
