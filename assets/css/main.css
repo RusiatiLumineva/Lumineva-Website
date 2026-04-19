@@ -1051,6 +1051,55 @@ p, .sans-text, .service-list li {
     text-decoration: none;
 }
 
+/* Share Section Styling */
+.share-section {
+    padding: 60px 0;
+    border-top: 1px solid #f8f1ec; /* Warna latar sangat lembut */
+    margin-top: 40px;
+}
+
+.share-links-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.share-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6e4b3a; /* Cokelat tua Anda */
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+}
+
+.share-item:hover {
+    color: #d89a7e; /* Warna terracotta Anda */
+    border-bottom: 1px solid #d89a7e;
+}
+
+.dot-separator {
+    color: #f3d5c0; /* Warna krem natural */
+    font-size: 1.2rem;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .share-links-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .dot-separator {
+        display: none; /* Sembunyikan titik di mobile agar rapi ke bawah */
+    }
+}
+
 /* =========================================
    PUSAT KENDALI MOBILE (768px ke bawah)
    ========================================= */
