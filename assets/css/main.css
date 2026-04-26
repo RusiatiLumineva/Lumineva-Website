@@ -1211,11 +1211,3 @@ p, .sans-text, .service-list li {
     
     .section-padding { padding: 60px 0; } /* Ruang antar bagian lebih rapat di HP */
 }
-
-/* Menghilangkan tanda bintang merah di Tally Embed/Popup */
-.tally-form .tally-required,
-span[style*="color: rgb(214, 53, 53)"], 
-span[style*="color: #d63535"],
-span[style*="color:red"] {
-    display: none !important;
-}
