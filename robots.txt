@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /success/
+Disallow: /id/success/
+
+Sitemap: https://luminevaaurorae.com/sitemap.xml
