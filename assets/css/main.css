@@ -1211,3 +1211,97 @@ p, .sans-text, .service-list li {
     
     .section-padding { padding: 60px 0; } /* Ruang antar bagian lebih rapat di HP */
 }
+
+    /* Testimonials */
+.testimonials-home {
+    padding: 100px 0;
+    background-color: #f8f1ec;
+}
+
+.testimonials-home .eyebrow {
+    display: block;
+    text-align: center;
+}
+
+.testimonials-home .section-title {
+    text-align: center;
+    margin: 16px 0 56px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: #FAF7F4;
+    border-radius: 12px;
+    padding: 40px 36px;
+    box-shadow: 0 8px 24px rgba(44, 36, 22, .10);
+}
+
+.testimonial-card .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #C17F5E;
+}
+
+.testimonial-card blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: #2C2416;
+    line-height: 1.6;
+    margin: 8px 0 24px;
+}
+
+.testimonial-name {
+    color: #2C2416;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.testimonial-role {
+    color: #8a7a66;
+    font-size: 0.9rem;
+}
+
+/* Founder Strip */
+.founder-strip {
+    padding: 100px 0;
+    background-color: #FAF7F4;
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 56px;
+    align-items: center;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.founder-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(44, 36, 22, .10);
+}
+
+.founder-strip .section-title {
+    margin: 16px 0 24px;
+}
+
+.founder-strip p {
+    color: #5c5247;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.founder-strip p:last-of-type {
+    margin-bottom: 28px;
+}
