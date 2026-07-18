@@ -1358,3 +1358,104 @@ p, .sans-text, .service-list li {
         transition: none;
     }
 }
+
+/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
+   One terracotta, one gold. Everything routes through these.
+   Values below use your official brand palette.
+   Prefer the softer, original terracotta? Swap --accent back
+   to #d89a7e on the line marked (A).                          */
+:root {
+    --bg-main:      #fcfbf9;   /* off-white body            */
+    --bg-alt:       #f7f5f2;   /* soft section background   */
+    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
+    --text-dark:    #2c2416;   /* brand charcoal            */
+    --text-body:    #5c5247;   /* readable body brown-grey  */
+    --text-light:   #8a7a66;   /* muted labels/captions     */
+    --accent:       #c17f5e;   /* (A) terracotta — brand    */
+    --gold:         #c9a96e;   /* muted champagne gold      */
+    --border:       #eceae6;   /* the missing token (bug)   */
+    --border-light: #eceae6;   /* keep alias for old rules  */
+}
+
+/* ---- 2. FIX THE INVISIBLE BORDER ------------------------
+   .service-box referenced an undefined --border → no border.
+   Token above now defines it; this makes the intent explicit. */
+.service-box {
+    border: 1px solid var(--border);
+}
+
+/* ---- 3. RETIRE THE STRAY GOLD ---------------------------
+   Footer email was hard-coded #d4af37 (too yellow). Align to
+   the muted brand gold so gold reads consistent site-wide.   */
+.footer-email {
+    color: var(--gold);
+}
+.footer-email:hover {
+    color: #f4f1ea;
+}
+
+/* ---- 4. ONE VISUAL LANGUAGE (editorial, not SaaS) -------
+   The newer testimonial + founder blocks used rounded corners
+   and drop shadows; the rest of the site is sharp & editorial.
+   Unify to thin border + square edges for a boutique feel.    */
+.testimonial-card {
+    background: var(--bg-cream);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    box-shadow: none;
+}
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: none;
+    border-color: var(--accent);
+}
+.testimonial-card .quote-mark { color: var(--accent); }
+.testimonial-card blockquote   { color: var(--text-dark); }
+.testimonial-name              { color: var(--text-dark); }
+.testimonial-role              { color: var(--text-light); }
+
+.founder-photo img {
+    border-radius: 0;
+    box-shadow: none;
+}
+.founder-strip p { color: var(--text-body); }
+
+/* ---- 5. TWO FONTS, NOT THREE ----------------------------
+   Drop 'Tenor Sans'. Cormorant Garamond carries the drop cap
+   and pull-quote — more cohesive, still elegant. (You may also
+   remove Tenor Sans from the <head> font <link>.)             */
+.dropcap::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.5rem;
+    color: var(--accent);
+}
+.poetic-quote {
+    font-family: 'Cormorant Garamond', serif;
+    border-left: 1px solid var(--accent);
+    color: var(--text-dark);
+}
+
+/* ---- 6. CONSISTENT SPACING RHYTHM -----------------------
+   Scattered paddings (100 / 120 / 150 / 160) → one calm scale.
+   128px desktop section rhythm; 64px on mobile stays as-is.   */
+.section-padding,
+.home-intro-section,
+.personal-note-section,
+.about-quote-section,
+.testimonials-home,
+.founder-strip {
+    padding-top: 128px;
+    padding-bottom: 128px;
+}
+
+@media (max-width: 768px) {
+    .section-padding,
+    .home-intro-section,
+    .personal-note-section,
+    .about-quote-section,
+    .testimonials-home,
+    .founder-strip {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+}
