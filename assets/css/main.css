@@ -1459,3 +1459,15 @@ p, .sans-text, .service-list li {
         padding-bottom: 64px;
     }
 }
+
+/* Hero & thumbnail story: jaga rasio lanskap di layar kecil */
+@media (max-width: 768px) {
+    .post-hero-image {
+        height: 240px;
+        margin-bottom: 50px;
+    }
+
+    .entry-image {
+        height: 210px;
+    }
+}
