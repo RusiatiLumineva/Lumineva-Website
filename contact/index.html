@@ -69,30 +69,30 @@
     
     				<div class="form-row">
         				<div class="input-group">
-            				<label>Your Name</label>
-            				<input type="text" name="name" placeholder="How shall I address you?" required>
+            				<label for="name">Your Name</label>
+            				<input type="text" name="name" placeholder="How shall I address you?" autocomplete="name" required>
         				</div>
         				<div class="input-group">
-            				<label>Email Address</label>
-            				<input type="email" name="email" placeholder="Where can I reach you?" required>
+            				<label for="email" >Email Address</label>
+            				<input type="email" id="email" name="email" placeholder="Where can I reach you?" autocomplete="email" required>
         				</div>
     				</div>
 
     				<div class="input-group">
-        				<label>Where would support be most useful?</label>
-        				<select name="service" required>
+        				<label for="service">Where would support be most useful?</label>
+        				<select id="service" name="service" required>
             				<option value="" disabled selected>Select a path...</option>
             				<option value="inquiry">Inquiry process</option>
             				<option value="booking">Booking process</option>
             				<option value="onboarding">Client onboarding</option>
-							<option value="not sure">Not sure yet</option>
+							<option value="not-sure">Not sure yet</option>
 							<option value="other">Other operational area</option>
         				</select>
     				</div>
 
     				<div class="input-group">
-        				<label>Tell me what is happening now</label>
-        				<textarea name="message" rows="5" placeholder="What currently feels unclear, repetitive, or too dependent on you?" required></textarea>
+        				<label for="message">Tell me what is happening now</label>
+        				<textarea id="message" name="message" rows="5" placeholder="What currently feels unclear, repetitive, or too dependent on you?" required></textarea>
     				</div>
 
     				<div class="form-footer">
