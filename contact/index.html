@@ -66,6 +66,11 @@
                 <form action="https://api.web3forms.com/submit" method="POST" class="luxury-form">
     				<input type="hidden" name="access_key" value="6aa3ad60-fcbc-4a6f-bbab-29e14036c953">
 					<input type="hidden" name="redirect" value="https://luminevaaurorae.com/success/">
+
+					<div class="form-trap" aria-hidden="true">
+    					<label for="website">Website</label>
+    					<input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+					</div>
     
     				<div class="form-row">
         				<div class="input-group">
@@ -75,6 +80,8 @@
         				<div class="input-group">
             				<label for="email" >Email Address</label>
             				<input type="email" id="email" name="email" placeholder="Where can I reach you?" autocomplete="email" required>
+							<input type="hidden" name="subject" value="New Lumineva Aurorae project inquiry">
+							<input type="hidden" name="from_name" value="Lumineva Aurorae Website">
         				</div>
     				</div>
 
