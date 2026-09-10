@@ -146,6 +146,12 @@ p, .sans-text, .service-list li {
     border-left: 1px solid rgba(0,0,0,0.1); /* Garis pemisah tipis di desktop */
 }
 
+.language-switch {
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #d89a7e;
+}
+
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
