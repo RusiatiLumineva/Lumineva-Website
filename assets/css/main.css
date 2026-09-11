@@ -1,1728 +1,1091 @@
-/* Base Style */
-/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
-   One terracotta, one gold. Everything routes through these.
-   Values below use your official brand palette.
-   Prefer the softer, original terracotta? Swap --accent back
-   to #d89a7e on the line marked (A).                          */
+```css
+/* ==========================================================================
+   Lumineva Aurorae — Main Stylesheet
+   ========================================================================== */
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
 :root {
-    --bg-main:      #fcfbf9;   /* off-white body            */
-    --bg-alt:       #f7f5f2;   /* soft section background   */
-    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
-    --text-dark:    #2c2416;   /* brand charcoal            */
-    --text-body:    #5c5247;   /* readable body brown-grey  */
-    --text-light:   #8a7a66;   /* muted labels/captions     */
-    --accent:       #c17f5e;   /* (A) terracotta — brand    */
-    --gold:         #c9a96e;   /* muted champagne gold      */
-    --border:       #eceae6;   /* the missing token (bug)   */
-    --border-light: #eceae6;   /* keep alias for old rules  */
+  --color-off-white: #f8f6f1;
+  --color-soft-cream: #eee8dc;
+  --color-cream-light: #fbfaf7;
+  --color-charcoal: #292725;
+  --color-charcoal-soft: #514b46;
+  --color-terracotta: #ad624c;
+  --color-terracotta-dark: #8f4f3e;
+  --color-champagne: #c9a978;
+  --color-champagne-light: #e4d1ad;
+  --color-white: #ffffff;
+  --color-border: #d9d1c5;
+  --color-border-light: #e8e1d7;
+  --color-muted: #756e67;
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", Arial, sans-serif;
+
+  --container-width: 1180px;
+  --content-width: 760px;
+  --section-space: clamp(4.5rem, 9vw, 8.5rem);
+  --grid-gap: clamp(1.5rem, 3vw, 3.5rem);
+  --radius-small: 2px;
+  --radius-medium: 6px;
+  --shadow-soft: 0 1rem 3rem rgba(41, 39, 37, 0.08);
+  --transition: 220ms ease;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================================================================
+   Global Reset
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fff;
-    color: #1a1a1a;
-    line-height: 1.8; /* Standar kenyamanan membaca */
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Global Typography */
-/* 1. STANDAR KONTEN (H1, H2, H3) */
-/* --- Paket Judul Utama --- */
-.display-serif {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 8vw, 4rem); 
-    line-height: 1.1;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #1a1a1a;
-    margin-bottom: 30px;
-}
-
-/* Teks miring di bawah judul utama */
-.display-serif em {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 0.85em; /* Sedikit lebih kecil dari judul utamanya agar elegan */
-    text-transform: none; /* Biarkan huruf kecil agar puitis */
-    color: var(--accent);
-    opacity: 0.9;
-    margin-top: 10px;
-}
-
-h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400; /* Sedikit lebih tebal agar terbaca di konten */
-    color: #1a1a1a;
-    letter-spacing: 1px; /* Jarak standar untuk judul artikel/layanan */
-    text-transform: none; /* Biarkan konten bisa huruf besar-kecil */
-    margin-bottom: 20px; /* Tambahkan margin bawah standar */
-}
-
-/* 2. IDENTITAS BRAND (LOGO) */
-.logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300; /* Tetap tipis agar mewah */
-    text-transform: uppercase; /* Wajib kapital untuk kesan formal */
-    letter-spacing: 5px; /* Jarak lebar adalah kunci "Luxury Brand" */
-    text-decoration: none;
-    color: #1a1a1a;
-    font-size: 1.1rem;
-    transition: opacity 0.3s ease;
-}
-
-.logo:hover {
-    opacity: 0.7;
-}
-
-/* Paragraph & List (Inter) - Untuk Kejelasan & Kebersihan Visual */
-p, .sans-text, .service-list li {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem; /* Ukuran standar di semua halaman */
-    font-weight: 300; /* Bobot ringan yang luxury */
-    color: #555;
-    letter-spacing: 0.2px;
-}
-
-.container { max-width: 1200px; margin: 0 auto; width: 90%; }
-.section-padding { padding: 120px 0; }
-.center { text-align: center; }
-.bg-soft { background-color: var(--bg-alt); }
-
-/* Navigation */
-.navbar {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 25px 8%; /* Reduced padding slightly for a sleeker sticky look */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(252, 251, 249, 0.85); /* Semi-transparent off-white */
-    backdrop-filter: blur(15px); /* This creates the luxury 'frosted glass' look */
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(236, 234, 230, 0.5); /* Very faint bottom line */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo-img {
-    height: 40px; /* Adjust this height to fit your navbar perfectly */
-    width: auto;  /* Keeps the aspect ratio */
-    display: block;
-    transition: opacity 0.3s ease;
-}
-.logo-img:hover {
-    opacity: 0.8;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none; /* This REMOVES the dots */
-    margin: 0;
-    padding: 0;
-    align-items: center;
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-off-white);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
 }
 
-.nav-links li { 
-    margin-left: 45px; /* Wider spacing for a more 'expensive' feel */
-    position: relative;
-}
-
-.nav-links li:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: -22px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 10px;
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* --- Perbaikan Navigasi agar EN/ID tidak berantakan --- */
-.nav-links li.lang-switch-mobile {
-    margin-left: 25px; 
-    padding-left: 15px;
-    border-left: 1px solid rgba(0,0,0,0.1); /* Garis pemisah tipis di desktop */
-}
-
-.language-switch {
-    margin-left: 20px;
-    padding-left: 20px;
-    border-left: 1px solid #d89a7e;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-dark);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem; /* Small font size is a hallmark of luxury design */
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 3px; /* Extra breathing room between letters */
-    opacity: 0.8; /* Slightly muted by default */
-    position: relative;
-    transition: color 0.3s ease;
+img,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
 }
-/* If you add class="active" to your HTML link */
-.nav-links a.active {
-    opacity: 1;
-    font-weight: 500;
-    border-bottom: 1px solid var(--accent);
-}
-
-/* Hover State */
-.nav-links a:hover { 
-    opacity: 1; /* Brightens up when hovered */
-    color: var(--accent);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--accent); /* Warna gold mu */
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%; /* Garis memanjang perlahan saat disentuh */
-}
-
-/* Hero Section */
-.hero-section {
-    /* Hapus height: 80vh; Hapus display: flex; */
-    padding: 180px 0 80px; 
-    text-align: center;
-    background-color: #fff; /* Pastikan bersih */
-}
-
-.hero-section .cta-link {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 14px 24px;
-    border: 1px solid var(--accent);
-    color: var(--text-dark);
-    transition: background-color .3s ease, color .3s ease;
-}
-
-.hero-section .cta-link:hover {
-    background-color: var(--accent);
-    color: #fff;
-    opacity: 1;
-}
-
-.hero-content {
-    max-width: 800px; /* Membatasi lebar teks agar tidak meluber ke samping */
-    margin: 0 auto; /* Menengahkan kontainer secara horizontal */
-}
-
-.hero-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    max-width: 550px; /* Membatasi lebar agar teks menumpuk rapi di tengah */
-    margin: 0 auto 40px;
-    line-height: 1.8;
-    color: #666;
-    font-weight: 300;
-    letter-spacing: 0.2px;
-}
-
-/* CTA yang tipis dan elegan */
-.cta-link {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #1a1a1a;
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 8px;
-    transition: opacity 0.3s ease;
-}
-
-.cta-link:hover {
-    opacity: 0.6;
-}
-
-.eyebrow {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 5px;
-    color: var(--text-light);
-    margin-bottom: 25px;
-}
-
-.hero-desc {
-    max-width: 600px;
-    margin: 0 auto 40px;
-    font-weight: 300;
-    color: var(--text-light);
-}
-
-/* Luxury Button */
-.btn-luxury {
-    display: inline-block;
-    padding: 18px 40px;
-    border: 1px solid var(--text-dark);
-    text-decoration: none;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.7rem;
-    transition: 0.4s ease;
-}
-
-.btn-luxury:hover {
-    background: var(--text-dark);
-    color: #fff;
-}
-
-/* Section Title */
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 80px;
-    text-align: center;
-}
-
-/* Grids */
-.grid-three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-}
-.grid-two {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-/* Cards & Service Boxes */
-.card-num {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--accent);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-.value-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-.value-card p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-weight: 300;
-}
-
-.service-box {
-    background: #fff;
-    border: 1px solid var(--border);
-    transition: 0.4s;
-}    
-.service-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-}
-.service-img {
-    height: 350px;
-    background-size: cover;
-    background-position: center;
-}
-.service-info {
-    padding: 45px;
-}
-.btn-text {
-    text-decoration: none;
-    color: var(--accent);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    display: inline-block;
-    transition: all 0.3s ease; /* Tambahkan ini untuk animasi halus */
-    cursor: pointer;
-}
-.btn-text:hover {
-    color: #1a1a1a; /* Warna berubah jadi hitam/gelap */
-    letter-spacing: 3px; /* Huruf sedikit merenggang */
-    transform: translateX(5px); /* Sedikit bergeser ke kanan */
-}
-
-.btn-text:hover::after {
-    margin-left: 15px; /* Garis atau panah setelah teks sedikit menjauh */
-    transition: all 0.4s ease;
-}
-
-/* Stories Large Text */
-.large-text {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    font-size: 1.2rem;
-    font-weight: 200;
-    color: var(--text-light);
-}
-
-/* Menambah ruang napas antar bagian di Home */
-.home-intro-section {
-    padding: 150px 0; /* Memberi ruang lebih lega */
-    background-color: #fff;
-}
-
-.home-intro-section h2 {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    margin-bottom: 60px;
-}
-
-/* =========================================
-   REFINED LUXURY FOOTER CSS
-   ========================================= */
-
-.main-footer {
-    /* Gunakan warna Charcoal yang sangat dalam untuk kesan mewah */
-    background-color: #1a1a1a; 
-    color: #e0dcd5; /* Teks off-white agar tidak terlalu kontras */
-    padding: 180px 10% 60px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Background ornament (opsional: tekstur halus) */
-.main-footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.02) 0%, transparent 80%);
-    pointer-events: none;
-}
-
-.main-footer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
-    pointer-events: none;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr; /* Kolom kiri - Garis tengah - Kolom kanan */
-    gap: 80px;
-    align-items: start;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Garis Pemisah Vertikal */
-.vertical-line {
-    width: 1px;
-    height: 120px; /* Batasi tingginya agar tidak memotong dari atas ke bawah */
-    background: linear-gradient(to bottom, transparent, rgba(224, 220, 213, 0.15), transparent);
-    align-self: center; /* Menjaga garis tetap di tengah secara vertikal */
-}
-
-/* Sisi Kiri */
-.logo-footer {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; /* Sedikit dikecilkan agar lebih classy */
-    letter-spacing: 12px; /* Ditambah jaraknya */
-    line-height: 1.2; /* Merapatkan baris atas dan bawah */
-    margin-bottom: 20px;
-    color: #f4f1ea;
-    font-weight: 300;
-}
-
-.footer-tagline {
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: #a09d98;
-    letter-spacing: 1px;
-    max-width: 250px;
-}
-
-/* Sisi Kanan */
-.footer-right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.eyebrow {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: #7a7772; /* Warna lebih gelap agar tenggelam */
-    margin-bottom: 30px;
-}
-
-.footer-email {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; /* Sangat besar dan anggun */
-    color: #d4af37; /* Warna Muted Gold */
-    text-decoration: none;
-    font-style: italic;
-    transition: all 0.5s ease;
-    line-height: 1;
-}
-
-.footer-email:hover {
-    color: #f4f1ea;
-    letter-spacing: 1px;
-}
-
-.contact-sub {
-    font-size: 0.8rem;
-    color: #7a7772;
-    margin-top: 15px;
-    font-weight: 300;
-}
-
-.social-links-footer {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem; /* Kecil dan elegan */
-    letter-spacing: 3px; /* Jarak antar huruf yang lebar */
-    color: #888; /* Warna abu-abu yang tenang */
-    text-align: right;
-    margin-top: 60px; /* Ruang napas di bawah teks 'Interested in exploring...' */
-}
-
-.social-links-footer a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.4s ease;
-}
 
-.social-links-footer a:hover {
-    color: var(--accent); /* Berubah emas saat disentuh */
-}
-
-.social-links-footer .separator {
-    margin: 0 15px; /* Jarak yang lebar di kiri-kanan garis pemisah */
-    color: #444; /* Garis pemisah sedikit lebih gelap agar tidak mengganggu teks */
-    font-weight: 300;
-}
-
-/* Meta & Copyright */
-.footer-meta-desktop {
-    grid-column: span 3; 
-    margin-top: 120px; /* Jarak ditambah */
-    padding-top: 40px;
-    border-top: 1px solid rgba(224, 220, 213, 0.03); /* Garis sangat transparan */
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.6rem; /* Lebih kecil */
-    color: #444; /* Lebih gelap agar hampir menyatu dengan background */
-    text-transform: uppercase;
-    letter-spacing: 3px;
+img {
+  height: auto;
 }
 
-/* About Page Specifics */
-.about-hero {
-    padding: 180px 0 100px;
-    background-color: #fff;
-    text-align: center;
+iframe {
+  width: 100%;
+  border: 0;
 }
 
-.grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    padding: 100px 0;
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
-.about-image-container {
-    position: relative;
+button,
+input,
+textarea,
+select {
+  color: inherit;
+  font: inherit;
 }
 
-.about-img {
-    width: 100%;
-    filter: sepia(20%) contrast(105%); /* Memberikan kesan vintage luxury */
-    transition: 0.6s ease;
+button,
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
 }
 
-.img-caption {
-    margin-top: 15px;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #aaa;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 4px;
 }
 
-.about-text h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    font-weight: 400;
+::selection {
+  background: var(--color-champagne-light);
+  color: var(--color-charcoal);
 }
 
-.about-text p {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 20px;
-    font-weight: 300;
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  color: var(--color-charcoal);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(3.25rem, 8vw, 7rem);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  letter-spacing: -0.025em;
 }
 
-.personal-note {
-    margin-top: 50px;
-    padding: 40px;
-    background-color: #fcfbf9;
-    border-left: 1px solid var(--accent);
+h3 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
 }
 
-.personal-note h3 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+h4 {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
 }
 
-.about-quote-section {
-    padding: 150px 0;
-    border-top: 1px solid #f0f0f0;
+p {
+  margin: 0 0 1.25rem;
 }
 
-.large-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-style: italic;
-    color: #1a1a1a;
-    opacity: 0.8;
+p:last-child {
+  margin-bottom: 0;
 }
 
-/* --- Personal Note Section (Version: Photo on Right) --- */
-.personal-note-section {
-    padding: 160px 0;
-    background-color: #fafafa;
-    border-top: 1px solid #f0f0f0; /* Garis pemisah yang sangat halus */
+ul,
+ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
 }
 
-.personal-note-wrapper.text-first {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 100px;
+blockquote {
+  margin: 0;
 }
 
-.note-text {
-    flex: 1.2;
-    max-width: 600px;
+.eyebrow,
+.kicker,
+.section-label {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-terracotta);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
-.note-text .eyebrow {
-    display: block;
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 25px;
+.text-center {
+  text-align: center;
 }
+
+/* ==========================================================================
+   Layout Utilities
+   ========================================================================== */
 
-.note-text h3 {
-    font-size: 2.8rem; /* Ukuran pas untuk heading di bawah */
-    line-height: 1.2;
-    margin-bottom: 35px;
+.container {
+  width: min(calc(100% - 3rem), var(--container-width));
+  margin-inline: auto;
 }
 
-.note-text p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.9; /* Memberikan ruang napas antar baris */
-    color: #555;
-    margin-bottom: 25px;
+.section-padding {
+  padding-block: var(--section-space);
 }
 
-.note-image {
-    flex: 1;
-    max-width: 480px;
-    /* Memberikan sedikit bayangan sangat halus agar foto tidak 'flat' */
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.03));
+.section-padding-top {
+  padding-top: var(--section-space);
 }
 
-.note-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+.section-padding-bottom {
+  padding-bottom: var(--section-space);
 }
 
-/* Tombol CTA Emas */
-.cta-link-gold {
-    display: inline-block;
-    margin-top: 15px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-decoration: none;
-    color: var(--accent);
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
+.grid-three,
+.grid-two,
+.grid-2,
+.testimonial-grid,
+.founder-grid {
+  display: grid;
+  gap: var(--grid-gap);
 }
 
-.cta-link-gold:hover {
-    letter-spacing: 3px;
-    border-bottom: 1px solid var(--accent);
+.grid-three,
+.testimonial-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* Offerings Styling */
-.offerings-hero {
-    padding: 180px 0 80px;
-    text-align: center;
+.grid-two,
+.grid-2,
+.founder-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.services-grid {
-    padding-bottom: 150px;
+.bg-cream,
+.soft-cream,
+.cream-section {
+  background: var(--color-soft-cream);
 }
 
-.service-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 40px;
-    padding: 80px 0;
-    border-top: 1px solid rgba(0,0,0,0.05); /* Garis pemisah yang sangat halus */
+.bg-white {
+  background: var(--color-white);
 }
 
-.service-number {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: var(--accent);
-    padding-top: 10px;
+.bg-dark {
+  background: var(--color-charcoal);
+  color: var(--color-off-white);
 }
 
-.service-content h2 {
-    font-size: 2.6rem;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
-    line-height: 1.2;
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4 {
+  color: var(--color-off-white);
 }
 
-.service-intro {
-    max-width: 600px;
-    margin-bottom: 35px;
+/* ==========================================================================
+   Header and Navigation
+   ========================================================================== */
+
+.site-header,
+header {
+  position: relative;
+  z-index: 20;
+  background: var(--color-off-white);
 }
 
-.service-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Membagi list jadi 2 kolom agar rapi */
-    gap: 12px 40px;
+.navbar,
+.site-nav,
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 5.5rem;
+  padding-block: 1rem;
 }
 
-.service-list li {
-    font-size: 0.85rem;
-    color: #666;
-    text-transform: none;
-    padding-left: 25px;
-    position: relative;
-    letter-spacing: 0.5px;
+.logo,
+.site-logo {
+  color: var(--color-charcoal);
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.service-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    opacity: 0.4;
+.nav-links,
+.navigation-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.cta-link {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #1a1a1a;
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 5px;
-    transition: 0.3s;
+.nav-links a,
+.navigation-links a {
+  color: var(--color-charcoal-soft);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color var(--transition);
 }
 
-.cta-link:hover {
-    letter-spacing: 4px;
-    opacity: 0.7;
+.nav-links a:hover,
+.navigation-links a:hover,
+.nav-links a[aria-current="page"],
+.navigation-links a[aria-current="page"] {
+  color: var(--color-terracotta);
 }
 
-/* Contact Page Specific */
-.container-small {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 20px;
+.nav-toggle,
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0.55rem 0.7rem;
+  color: var(--color-charcoal);
 }
 
-.contact-hero {
-    padding: 180px 0 60px;
-    text-align: center;
+/* ==========================================================================
+   Buttons and Links
+   ========================================================================== */
+
+.button,
+.btn,
+.cta-button,
+.lead-magnet-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  border: 1px solid var(--color-terracotta);
+  border-radius: var(--radius-small);
+  background: var(--color-terracotta);
+  padding: 0.8rem 1.5rem;
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
 }
 
-.contact-sub {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: #666;
-    margin-top: 20px;
+.button:hover,
+.btn:hover,
+.cta-button:hover,
+.lead-magnet-button:hover {
+  border-color: var(--color-terracotta-dark);
+  background: var(--color-terracotta-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
 }
 
-/* Luxury Form Elements */
-.luxury-form {
-    padding-bottom: 150px;
+.button-outline,
+.btn-outline {
+  border-color: var(--color-charcoal);
+  background: transparent;
+  color: var(--color-charcoal);
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+.button-outline:hover,
+.btn-outline:hover {
+  background: var(--color-charcoal);
+  color: var(--color-off-white);
 }
+
+/* ==========================================================================
+   Homepage Hero
+   ========================================================================== */
 
-.input-group {
-    margin-bottom: 50px;
-    position: relative;
+.hero,
+.home-hero,
+.homepage-hero {
+  display: grid;
+  align-items: center;
+  min-height: min(780px, calc(100vh - 5.5rem));
+  padding-block: var(--section-space);
+  background: var(--color-off-white);
 }
 
-.input-group label {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
-    margin-bottom: 15px;
+.hero-content,
+.home-hero-content,
+.homepage-hero-content {
+  max-width: 720px;
 }
 
-.luxury-form input, 
-.luxury-form select, 
-.luxury-form textarea {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #eee; /* Garis sangat tipis */
-    padding: 10px 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    background: transparent;
-    transition: border-color 0.4s ease;
-    border-radius: 0;
+.hero p,
+.home-hero p,
+.homepage-hero p {
+  max-width: 600px;
+  color: var(--color-charcoal-soft);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
 }
 
-.luxury-form input:focus, 
-.luxury-form select:focus, 
-.luxury-form textarea:focus {
-    outline: none;
-    border-bottom: 1px solid var(--accent); /* Berubah jadi emas saat diklik */
+.hero-actions,
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.form-trap {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
+.hero-image,
+.home-hero-image {
   overflow: hidden;
 }
 
-/* Tombol Kirim */
-.btn-submit {
-    background: #1a1a1a;
-    color: #fff;
-    border: none;
-    padding: 15px 40px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: all 0.4s ease;
+.hero-image img,
+.home-hero-image img {
+  width: 100%;
+  object-fit: cover;
 }
 
-.btn-submit:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
-}
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
 
-.form-note {
-    font-size: 0.8rem;
-    color: #999;
-    font-style: italic;
-    margin-top: 20px;
-}
-
-/* Journal Styling */
-.container-journal {
-    max-width: 850px; /* Lebih lebar dari form contact, tapi tetap fokus */
-    margin: 0 auto;
-    padding: 0 20px 150px;
-}
-
-.stories-hero {
-    padding: 180px 0 100px;
-    text-align: center;
-}
-
-.journal-entry {
-    margin-bottom: 120px; /* Jarak antar artikel yang sangat lega */
-    text-align: left;
-}
-
-.entry-image {
-    width: 100%;
-    height: 400px; /* Ukuran yang konsisten untuk semua kartu artikel */
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.entry-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1); /* Zoom yang sangat lambat dan mewah */
-}
-
-.journal-entry:hover .entry-image img {
-    transform: scale(1.05); /* Gambar sedikit membesar */
-}
-
-.entry-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
-}
-
-.entry-meta .category {
-    margin-left: 15px;
-    color: var(--accent); /* Warna emas sebagai aksen category */
-}
-
-.entry-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 25px;
-}
-
-.entry-title a {
-    text-decoration: none;
-    color: #1a1a1a;
-    transition: opacity 0.3s;
-}
-
-.entry-excerpt {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-/* --- Success Page Styling --- */
-.success-hero {
-    padding: 200px 0 150px; /* Ruang sangat lega di atas */
-    text-align: center;
-    min-height: 60vh; /* Memastikan konten berada di tengah layar */
-    display: flex;
-    align-items: center;
-}
-
-.success-content {
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.success-message {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 1.1rem;
-    line-height: 2;
-    color: #666;
-    margin: 40px 0;
-}
-
-.success-actions {
-    margin-top: 50px;
-}
-
-.success-actions .separator {
-    margin: 0 20px;
-    color: #ddd;
-    font-weight: 300;
-}
-
-/* Menggunakan kembali style CTA Gold yang sudah kita buat */
-.success-actions .cta-link-gold {
-    font-size: 0.65rem;
-    letter-spacing: 3px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--accent);
-    transition: all 0.3s ease;
-}
-
-.success-actions .cta-link-gold:hover {
-    color: #1a1a1a;
-}
-
-/* --- Post Detail Layout --- */
-.container-narrow {
-    max-width: 750px; /* Lebar teks yang ideal untuk membaca */
-    margin: 0 auto;
-    padding: 0 25px;
-}
-
-.post-header {
-    padding-top: 150px;
-    text-align: center;
-}
-
-.post-header h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin: 30px 0 60px;
-}
-
-.post-hero-image {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 80px;
-    height: 500px;
-    overflow: hidden;
-}
-
-.post-hero-image img {
-    width: 100%;
-    max-width: 100%; /* Memastikan gambar tidak pecah melewati container */
-    height: 100%;    /* Mengikuti proporsi asli gambar agar tidak terlihat 'gepeng' */
-    object-fit: cover; /* Menjaga estetika pemotongan gambar yang rapi */
-}
-
-/* --- Typography Detail --- */
-.post-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 2;
-    color: #444;
-    font-weight: 300;
-}
-
-.post-body p {
-    margin-bottom: 35px;
-}
-
-.dropcap::first-letter {
-    font-family: 'Tenor Sans', serif;
-    float: left;
-    font-size: 5rem;
-    line-height: 0.8;
-    padding-right: 15px;
-    color: var(--accent);
-}
-
-.poetic-quote {
-    font-family: 'Tenor Sans', serif;
-    font-size: 1.8rem;
-    line-height: 1.4;
-    color: #1a1a1a;
-    margin: 70px 0;
-    padding-left: 40px;
-    border-left: 1px solid var(--accent);
-    font-style: italic;
-}
-
-.emphasis-text {
-    font-size: 1.3rem;
-    color: #1a1a1a;
-    font-style: italic;
-    font-weight: 400;
-}
-
-.post-conclusion {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #eee;
-    font-weight: 400;
-}
-
-.post-footer {
-    margin-top: 100px;
-    padding-bottom: 100px;
-    text-align: center;
-}
-
-.back-link {
-    text-decoration: none;
-    color: #999;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: color 0.3s;
-}
-
-.back-link:hover {
-    color: var(--accent);
-}
-
-.lang-switch {
-    margin-left: 25px; /* Memberi jarak di sebelah kiri teks EN */
-    padding-left: 15px;
-    border-left: 1px solid #ccc; /* Opsional: memberi garis tipis pemisah agar lebih elegan */
-    text-decoration: none;
-}
-
-/* Share Section Styling */
-.share-section {
-    padding: 60px 0;
-    border-top: 1px solid #f8f1ec; /* Warna latar sangat lembut */
-    margin-top: 40px;
-}
-
-.share-links-wrapper {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.share-item {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #6e4b3a; /* Cokelat tua Anda */
-    text-decoration: none;
-    transition: all 0.4s ease;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
-}
-
-.share-item:hover {
-    color: #d89a7e; /* Warna terracotta Anda */
-    border-bottom: 1px solid #d89a7e;
-}
-
-.dot-separator {
-    color: #f3d5c0; /* Warna krem natural */
-    font-size: 1.2rem;
-}
-
-/* Responsif untuk Mobile */
-@media (max-width: 768px) {
-    .share-links-wrapper {
-        flex-wrap: wrap; /* Agar tombol bisa turun ke baris baru jika tidak muat */
-        gap: 10px 20px;
-        max-width: 300px;
-        margin: 20px auto 0;
-    }
-    .dot-separator {
-        display: none; /* Sembunyikan titik di mobile agar lebih bersih */
-    }
-}
-
-/* =========================================
-   Mobile Layout
-   ========================================= */
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        padding: 15px 5%;
-        text-align: center;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 15px;
-    }
-
-    .nav-links li {
-        margin: 5px 8px;
-    }
-
-    .nav-links li:not(:last-child)::after,
-    .nav-links li.lang-switch-mobile {
-        border-left: none !important;
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-    }
-
-    .lang-switch-mobile {
-        margin-left: 8px !important;
-    }
-
-    .lang-switch-mobile a {
-        color: var(--accent);
-        font-weight: 500;
-    }
-
-    .display-serif {
-        font-size: 2.2rem !important;
-        letter-spacing: 2px !important;
-    }
-
-    h1 {
-        font-size: 2rem !important;
-    }
-
-    h2 {
-        font-size: 1.6rem !important;
-    }
-
-    .grid-three,
-    .grid-two,
-    .grid-2,
-    .services-grid {
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
-    }
-
-    .footer-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 40px !important;
-        text-align: center !important;
-    }
-
-    .footer-right {
-        width: 100% !important;
-        align-items: center !important;
-        text-align: center !important;
-    }
-
-    .footer-email {
-        display: inline-block;
-        width: 100%;
-        font-size: 1.4rem !important;
-        letter-spacing: 0.5px !important;
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
-
-    .social-links-footer {
-        width: 100%;
-        margin-top: 30px !important;
-        text-align: center !important;
-    }
-
-    .vertical-line {
-        display: none !important;
-    }
-
-    .footer-meta-desktop {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px;
-        width: 100%;
-        margin-top: 60px !important;
-        text-align: center !important;
-    }
-
-    .section-padding {
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
-
-    .testimonials-home,
-    .founder-strip,
-    .personal-note-section,
-    .about-quote-section {
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .service-list {
-        grid-template-columns: 1fr;
-    }
-
-    .personal-note-wrapper.text-first {
-        flex-direction: column;
-        gap: 48px;
-    }
-
-    .note-text,
-    .note-image {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .post-hero-image {
-        height: 240px;
-        margin-bottom: 50px;
-    }
-
-    .entry-image {
-        height: 210px;
-    }
-
-    .share-links-wrapper {
-        flex-wrap: wrap;
-        gap: 10px 20px;
-        max-width: 300px;
-        margin: 20px auto 0;
-    }
-
-    .dot-separator {
-        display: none;
-    }
-}
-
-@media (max-width: 420px) {
-    .container {
-        width: calc(100% - 44px);
-    }
-
-    .navbar {
-        padding-right: 22px;
-        padding-left: 22px;
-    }
-
-    .nav-links {
-        gap: 8px;
-    }
-
-    .nav-links li {
-        margin: 4px 5px;
-    }
-
-    .lead-magnet-card {
-        padding: 36px 22px;
-        border-radius: 16px;
-    }
-
-    .lead-magnet-card h2 {
-        font-size: 2.2rem;
-    }
-
-    .lead-magnet-button {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-   /* Testimonials */
 .testimonials-home {
-    padding: 100px 0;
-    background-color: #f8f1ec;
-}
-
-.testimonials-home .eyebrow {
-    display: block;
-    text-align: center;
-}
-
-.testimonials-home .section-title {
-    text-align: center;
-    margin: 16px 0 56px;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 22px;
-    max-width: 1040px;
-    margin: 0 auto;
+  background: var(--color-soft-cream);
 }
 
 .testimonial-card {
-    background: #FAF7F4;
-    border-radius: 12px;
-    padding: 40px 36px;
-    box-shadow: 0 8px 24px rgba(44, 36, 22, .10);
-}
-
-.testimonial-card .quote-mark {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    line-height: 1;
-    color: #C17F5E;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  background: var(--color-off-white);
 }
 
 .testimonial-card blockquote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.35rem;
-    color: #2C2416;
-    line-height: 1.6;
-    margin: 8px 0 24px;
+  flex: 1;
+  color: var(--color-charcoal-soft);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+  line-height: 1.25;
 }
 
-.testimonial-name {
-    color: #2C2416;
-    font-weight: 600;
-    margin-bottom: 4px;
+.testimonial-card cite {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--color-terracotta);
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.testimonial-role {
-    color: #8a7a66;
-    font-size: 0.9rem;
-}
+/* ==========================================================================
+   Founder Section
+   ========================================================================== */
 
-/* Founder Strip */
 .founder-strip {
-    padding: 100px 0;
-    background-color: #FAF7F4;
+  background: var(--color-charcoal);
+  color: var(--color-off-white);
+}
+
+.founder-strip h2,
+.founder-strip h3 {
+  color: var(--color-off-white);
 }
 
 .founder-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 56px;
-    align-items: center;
-    max-width: 1040px;
-    margin: 0 auto;
+  align-items: center;
+}
+
+.founder-photo {
+  overflow: hidden;
 }
 
 .founder-photo img {
-    width: 100%;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(44, 36, 22, .10);
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
-.founder-strip .section-title {
-    margin: 16px 0 24px;
-}
-
-.founder-strip p {
-    color: #5c5247;
-    line-height: 1.8;
-    margin-bottom: 18px;
-}
-
-.founder-strip p:last-of-type {
-    margin-bottom: 28px;
-}
-
-/* 1. Founder strip: judul rata kiri, selaras dengan eyebrow & paragraf */
-.founder-strip .section-title {
-    text-align: left;
-    line-height: 1.25;
-}
-
-/* 2. Judul section dua baris: rapatkan jarak baris */
-.testimonials-home .section-title {
-    line-height: 1.25;
-}
-
-/* 3. Kartu testimonial: nama menempel ke dasar kartu + hover halus */
-.testimonial-card {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.testimonial-card blockquote {
-    margin-bottom: 32px;
-}
-
-.testimonial-card .testimonial-name {
-    margin-top: auto;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(44, 36, 22, .08);
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-}
-
-.reveal-visible {
-    opacity: 1;
-    transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-}
-       
-/* ---- 2. FIX THE INVISIBLE BORDER ------------------------
-   .service-box referenced an undefined --border → no border.
-   Token above now defines it; this makes the intent explicit. */
-.service-box {
-    border: 1px solid var(--border);
-}
-
-/* ---- 3. RETIRE THE STRAY GOLD ---------------------------
-   Footer email was hard-coded #d4af37 (too yellow). Align to
-   the muted brand gold so gold reads consistent site-wide.   */
-.footer-email {
-    color: var(--gold);
-}
-.footer-email:hover {
-    color: #f4f1ea;
-}
-
-/* ---- 4. ONE VISUAL LANGUAGE (editorial, not SaaS) -------
-   The newer testimonial + founder blocks used rounded corners
-   and drop shadows; the rest of the site is sharp & editorial.
-   Unify to thin border + square edges for a boutique feel.    */
-.testimonial-card {
-    background: var(--bg-cream);
-    border: 1px solid var(--border);
-    border-radius: 0;
-    box-shadow: none;
-}
-.testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: none;
-    border-color: var(--accent);
-}
-.testimonial-card .quote-mark { color: var(--accent); }
-.testimonial-card blockquote   { color: var(--text-dark); }
-.testimonial-name              { color: var(--text-dark); }
-.testimonial-role              { color: var(--text-light); }
-
-.founder-photo img {
-    border-radius: 0;
-    box-shadow: none;
-}
-.founder-strip p { color: var(--text-body); }
-
-/* ---- 5. TWO FONTS, NOT THREE ----------------------------
-   Drop 'Tenor Sans'. Cormorant Garamond carries the drop cap
-   and pull-quote — more cohesive, still elegant. (You may also
-   remove Tenor Sans from the <head> font <link>.)             */
-.dropcap::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5.5rem;
-    color: var(--accent);
-}
-.poetic-quote {
-    font-family: 'Cormorant Garamond', serif;
-    border-left: 1px solid var(--accent);
-    color: var(--text-dark);
-}
-
-/* ---- 6. CONSISTENT SPACING RHYTHM -----------------------
-   Scattered paddings (100 / 120 / 150 / 160) → one calm scale.
-   128px desktop section rhythm; 64px on mobile stays as-is.   */
-.section-padding,
-.home-intro-section,
-.personal-note-section,
-.about-quote-section,
-.testimonials-home,
-.founder-strip {
-    padding-top: 128px;
-    padding-bottom: 128px;
-}
-
-@media (max-width: 768px) {
-    .section-padding,
-    .home-intro-section,
-    .personal-note-section,
-    .about-quote-section,
-    .testimonials-home,
-    .founder-strip {
-        padding-top: 64px;
-        padding-bottom: 64px;
-    }
-}
-
-/* =========================================
-   Lead Magnet Card
-   ========================================= */
+/* ==========================================================================
+   Lead Magnet
+   ========================================================================== */
 
 .lead-magnet-card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 48px;
-    overflow: hidden;
-    padding: 60px 52px;
-    border-radius: 22px;
-    background-color: #1a1a1a;
-    color: #fcfbf9;
-}
-
-.lead-magnet-card::before {
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
-    border: 2px solid rgba(201, 169, 110, 0.3);
-    border-radius: 50%;
-    content: '';
-    pointer-events: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+  align-items: stretch;
+  overflow: hidden;
+  background: var(--color-soft-cream);
+  box-shadow: var(--shadow-soft);
 }
 
 .lead-magnet-content {
-    position: relative;
-    z-index: 1;
-    flex: 1 1 300px;
-    min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
 }
 
-.lead-magnet-card .eyebrow {
-    display: block;
-    margin-bottom: 16px;
-    color: var(--gold);
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-.lead-magnet-card h2 {
-    margin: 0 0 18px;
-    color: #fcfbf9;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.05;
-}
-
-.lead-magnet-card p {
-    max-width: 460px;
-    margin: 0 0 30px;
-    color: #ded4c8;
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.7;
-}
-
-.lead-magnet-button {
-    display: inline-block;
-    padding: 16px 36px;
-    border: 0;
-    border-radius: 9px;
-    background-color: var(--accent);
-    color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-.lead-magnet-button:hover {
-    background-color: #c8876a;
-    transform: translateY(-2px);
-}
-
-.lead-magnet-button:focus-visible {
-    outline: 3px solid #f4d7c8;
-    outline-offset: 4px;
+.lead-magnet-content p {
+  max-width: 560px;
+  color: var(--color-charcoal-soft);
 }
 
 .lead-magnet-card-visual {
-    position: relative;
-    z-index: 1;
-    flex: 0 0 300px;
-    max-width: 300px;
-    margin: 0 auto;
+  min-height: 280px;
+  background: var(--color-champagne-light);
 }
 
 .lead-magnet-card-visual img {
-    display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+}
+
+.lead-magnet-button {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   About Page
+   ========================================================================== */
+
+.about-hero,
+.contact-hero {
+  padding-block: clamp(5rem, 11vw, 10rem);
+  background: var(--color-soft-cream);
+}
+
+.about-text {
+  max-width: var(--content-width);
+}
+
+.about-text p {
+  color: var(--color-charcoal-soft);
+  font-size: 1.08rem;
+}
+
+.personal-note-section {
+  background: var(--color-cream-light);
+}
+
+.personal-note-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--grid-gap);
+}
+
+.personal-note-wrapper.text-first .note-text {
+  order: 1;
+}
+
+.personal-note-wrapper.text-first .note-image {
+  order: 2;
+}
+
+.note-text {
+  max-width: 600px;
+}
+
+.note-image {
+  overflow: hidden;
+}
+
+.note-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Offerings and Services
+   ========================================================================== */
+
+.offerings {
+  background: var(--color-off-white);
+}
+
+.service-items {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
+  padding-block: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-item h3,
+.service-item h4 {
+  margin: 0;
+}
+
+.service-item p {
+  max-width: 620px;
+  color: var(--color-charcoal-soft);
+}
+
+/* ==========================================================================
+   Contact Page and Forms
+   ========================================================================== */
+
+.contact-hero {
+  text-align: center;
+}
+
+.contact-hero p {
+  max-width: 620px;
+  margin-inline: auto;
+  color: var(--color-charcoal-soft);
+}
+
+.luxury-form,
+.contact-form {
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.form-field,
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-field label,
+.form-group label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--color-charcoal-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select,
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-off-white);
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.form-field textarea,
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus,
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-terracotta);
+  background: var(--color-white);
+  outline: none;
+}
+
+.luxury-form button,
+.contact-form button {
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Stories, Journal, and Post Detail
+   ========================================================================== */
+
+.stories,
+.journal,
+.stories-grid,
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.story-card,
+.journal-entry {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.story-card-image,
+.journal-entry-image {
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.story-card-image img,
+.journal-entry-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.story-card:hover img,
+.journal-entry:hover img {
+  transform: scale(1.03);
+}
+
+.story-card h3,
+.journal-entry h3 {
+  margin-bottom: 0.65rem;
+}
+
+.story-card a,
+.journal-entry a {
+  text-decoration: none;
+}
+
+.story-card p,
+.journal-entry p {
+  color: var(--color-charcoal-soft);
+}
+
+.post-detail,
+.post-content {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.post-detail-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.post-detail-meta {
+  color: var(--color-terracotta);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.post-detail-image {
+  margin-bottom: 3rem;
+}
+
+.post-detail-image img {
+  width: 100%;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  margin-top: 2.5rem;
+}
+
+.post-content p,
+.post-content li {
+  color: var(--color-charcoal-soft);
+}
+
+/* ==========================================================================
+   Success Page
+   ========================================================================== */
+
+.success-page,
+.success-content {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.success-content {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.success-content p {
+  color: var(--color-charcoal-soft);
+}
+
+/* ==========================================================================
+   Share Section
+   ========================================================================== */
+
+.share-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.share-section p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.share-links,
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.share-links a,
+.social-links a {
+  color: var(--color-charcoal-soft);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.share-links a:hover,
+.social-links a:hover {
+  color: var(--color-terracotta);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer,
+footer {
+  background: var(--color-charcoal);
+  color: var(--color-off-white);
+}
+
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+footer h2,
+footer h3,
+footer h4 {
+  color: var(--color-off-white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(2, 1fr);
+  gap: var(--grid-gap);
+}
+
+.footer-brand p,
+.footer-column p {
+  color: rgba(248, 246, 241, 0.72);
+}
+
+.footer-links {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links a {
+  color: rgba(248, 246, 241, 0.78);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-champagne-light);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(248, 246, 241, 0.2);
+  color: rgba(248, 246, 241, 0.6);
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   Responsive Layout — Tablet and Mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(calc(100% - 2rem), var(--container-width));
+  }
+
+  .navbar,
+  .site-nav,
+  .navigation {
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle,
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links,
+  .navigation-links {
+    display: none;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-top: 1rem;
+  }
+
+  .nav-links.is-open,
+  .navigation-links.is-open,
+  .nav-links.active,
+  .navigation-links.active {
+    display: flex;
+  }
+
+  .nav-links li,
+  .navigation-links li {
     width: 100%;
-    height: auto;
+    border-top: 1px solid var(--color-border-light);
+  }
+
+  .nav-links a,
+  .navigation-links a {
+    display: block;
+    padding-block: 0.8rem;
+  }
+
+  .hero,
+  .home-hero,
+  .homepage-hero {
+    min-height: auto;
+  }
+
+  .grid-three,
+  .testimonial-grid,
+  .stories,
+  .journal,
+  .stories-grid,
+  .journal-grid,
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-two,
+  .grid-2,
+  .founder-grid,
+  .personal-note-wrapper,
+  .lead-magnet-card {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-magnet-card-visual {
+    order: -1;
+  }
+
+  .lead-magnet-card-visual,
+  .lead-magnet-card-visual img {
+    min-height: 240px;
+  }
+
+  .personal-note-wrapper.text-first .note-text,
+  .personal-note-wrapper.text-first .note-image {
+    order: initial;
+  }
+
+  .service-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .share-section,
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
-/* Tablet and mobile */
-@media (max-width: 768px) {
-    .lead-magnet-card {
-        gap: 36px;
-        padding: 44px 28px;
-    }
-
-    .lead-magnet-content {
-        min-width: 0;
-    }
-
-    .lead-magnet-card p {
-        max-width: none;
-    }
-
-    .lead-magnet-card-visual {
-        flex: 1 1 auto;
-        max-width: 260px;
-    }
-}
-
-/* Small mobile screens */
 @media (max-width: 420px) {
-    .lead-magnet-card {
-        padding: 36px 22px;
-        border-radius: 16px;
-    }
+  h1 {
+    font-size: 3rem;
+  }
 
-    .lead-magnet-card h2 {
-        font-size: 2.2rem;
-    }
+  h2 {
+    font-size: 2.5rem;
+  }
 
-    .lead-magnet-button {
-        width: 100%;
-        text-align: center;
-    }
+  .grid-three,
+  .grid-two,
+  .grid-2,
+  .testimonial-grid,
+  .stories,
+  .journal,
+  .stories-grid,
+  .journal-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: min(calc(100% - 1.5rem), var(--container-width));
+  }
+
+  .section-padding {
+    padding-block: 4rem;
+  }
+
+  .hero-actions,
+  .hero-buttons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button,
+  .hero-buttons .button,
+  .hero-actions .btn,
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .lead-magnet-content,
+  .luxury-form,
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .lead-magnet-button {
+    width: 100%;
+  }
 }
 
-/* Accessibility */
+/* ==========================================================================
+   Accessibility and Motion Preferences
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
-    .lead-magnet-button {
-        transition: none;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 
-    .lead-magnet-button:hover {
-        transform: none;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
-
-/* Hero & thumbnail story: jaga rasio lanskap di layar kecil */
-@media (max-width: 768px) {
-    .post-hero-image {
-        height: 240px;
-        margin-bottom: 50px;
-    }
-
-    .entry-image {
-        height: 210px;
-    }
-}
+```
