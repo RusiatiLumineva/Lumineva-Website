@@ -1477,7 +1477,7 @@ p, .sans-text, .service-list li {
 /* ==========================================================================
    Lead magnet card — Operations Audit Checklist
    ========================================================================== */
-.checklist-card {
+.lead-magnet--card {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -1489,7 +1489,7 @@ p, .sans-text, .service-list li {
     background: var(--text-dark);
 }
 
-.checklist-card::before {
+.lead-magnet-card::before {
     content: '';
     position: absolute;
     top: -60px;
@@ -1501,14 +1501,14 @@ p, .sans-text, .service-list li {
     pointer-events: none;
 }
 
-.checklist-card-content {
+.lead-magnet-card-content {
     position: relative;
     z-index: 1;
     flex: 1;
     min-width: 280px;
 }
 
-.checklist-card .eyebrow {
+.lead-magnet-card .eyebrow {
     display: block;
     margin-bottom: 16px;
     color: #d4af37;
@@ -1519,7 +1519,7 @@ p, .sans-text, .service-list li {
     text-transform: uppercase;
 }
 
-.checklist-card h2 {
+.lead-magnet-card h2 {
     margin: 0 0 18px;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
@@ -1528,7 +1528,7 @@ p, .sans-text, .service-list li {
     color: var(--bg-main);
 }
 
-.checklist-card p {
+.lead-magnet-card p {
     max-width: 460px;
     margin: 0 0 30px;
     color: #cbbfae;
@@ -1536,7 +1536,7 @@ p, .sans-text, .service-list li {
     line-height: 1.7;
 }
 
-.checklist-button {
+.lead-magnet-button {
     display: inline-block;
     padding: 16px 36px;
     border: none;
@@ -1552,12 +1552,12 @@ p, .sans-text, .service-list li {
     transition: background .3s ease, transform .3s ease;
 }
 
-.checklist-button:hover {
+.lead-magnet-button:hover {
     background: #c8876a;
     transform: translateY(-2px);
 }
 
-.checklist-card-visual {
+.lead-magnet-card-visual {
     position: relative;
     z-index: 1;
     flex: 0 0 300px;
@@ -1565,16 +1565,16 @@ p, .sans-text, .service-list li {
     margin: 0 auto;
 }
 
-.checklist-card-visual img {
+.lead-magnet-card-visual img {
     width: 100%;
     display: block;
 }
 
 @media (max-width: 768px) {
-    .checklist-card { padding: 44px 28px; gap: 36px; }
-    .checklist-card-content { min-width: 0; }
-    .checklist-card p { max-width: none; }
-    .checklist-card-visual { flex: 1 1 auto; max-width: 260px; }
+    .lead-magnet-card { padding: 44px 28px; gap: 36px; }
+    .lead-magnet-card-content { min-width: 0; }
+    .lead-magnet-card p { max-width: none; }
+    .lead-magnet-card-visual { flex: 1 1 auto; max-width: 260px; }
 }    
 
 /* Hero & thumbnail story: jaga rasio lanskap di layar kecil */
