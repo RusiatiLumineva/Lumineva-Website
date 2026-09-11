@@ -1557,6 +1557,11 @@ p, .sans-text, .service-list li {
     transform: translateY(-2px);
 }
 
+.lead-magnet-button:focus-visible {
+    outline: 3px solid #f4d7c8;
+    outline-offset: 4px;
+}
+
 .lead-magnet-card-visual {
     position: relative;
     z-index: 1;
