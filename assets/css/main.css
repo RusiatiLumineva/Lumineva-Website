@@ -1,11 +1,20 @@
 /* Base Style */
+/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
+   One terracotta, one gold. Everything routes through these.
+   Values below use your official brand palette.
+   Prefer the softer, original terracotta? Swap --accent back
+   to #d89a7e on the line marked (A).                          */
 :root {
-    --bg-main: #fcfbf9;
-    --bg-alt: #f7f5f2;
-    --text-dark: #1a1a1a;
-    --text-light: #666666;
-    --accent: #d89a7e; /* Muted Gold */
-    --border-light: #eceae6;
+    --bg-main:      #fcfbf9;   /* off-white body            */
+    --bg-alt:       #f7f5f2;   /* soft section background   */
+    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
+    --text-dark:    #2c2416;   /* brand charcoal            */
+    --text-body:    #5c5247;   /* readable body brown-grey  */
+    --text-light:   #8a7a66;   /* muted labels/captions     */
+    --accent:       #c17f5e;   /* (A) terracotta — brand    */
+    --gold:         #c9a96e;   /* muted champagne gold      */
+    --border:       #eceae6;   /* the missing token (bug)   */
+    --border-light: #eceae6;   /* keep alias for old rules  */
 }
 
 * {
@@ -1132,11 +1141,10 @@ p, .sans-text, .service-list li {
 }
 
 /* =========================================
-   PUSAT KENDALI MOBILE (768px ke bawah)
+   Mobile Layout
    ========================================= */
 
 @media (max-width: 768px) {
-    /* Navbar & Menu (Solusi Terpotong) */
     .navbar {
         flex-direction: column;
         padding: 15px 5%;
@@ -1145,103 +1153,180 @@ p, .sans-text, .service-list li {
 
     .nav-links {
         display: flex;
-        flex-wrap: wrap; /* Menu akan turun ke bawah jika layar sempit */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 12px;
         margin-top: 15px;
-        padding: 0;
     }
 
     .nav-links li {
-        margin: 5px 8px; /* Jarak pas untuk jari di HP */
+        margin: 5px 8px;
     }
 
-    /* Hapus garis vertikal yang mengganggu di HP */
-    .nav-links li:not(:last-child)::after, 
-    .lang-switch-mobile {
+    .nav-links li:not(:last-child)::after,
+    .nav-links li.lang-switch-mobile {
         border-left: none !important;
         margin-left: 0 !important;
         padding-left: 0 !important;
     }
 
-    .nav-links li.lang-switch-mobile {
-        border-left: none !important;
-        margin-left: 8px !important; /* Samakan dengan menu lain di HP */
-        padding-left: 0 !important;
+    .lang-switch-mobile {
+        margin-left: 8px !important;
     }
 
     .lang-switch-mobile a {
-    font-weight: 500; /* Sedikit lebih tegas agar mudah ditemukan */
-    color: var(--accent); /* Menggunakan warna emas mu */
-}
-    
-    /* Tipografi (Agar tidak meluber) */
-    .display-serif { 
-        font-size: 2.2rem !important; 
+        color: var(--accent);
+        font-weight: 500;
+    }
+
+    .display-serif {
+        font-size: 2.2rem !important;
         letter-spacing: 2px !important;
     }
-    
-    h1 { font-size: 2rem !important; }
-    h2 { font-size: 1.6rem !important; }
 
-    /* Layout (Grid jadi 1 kolom semua) */
-    .grid-three, .grid-two, .footer-grid, .grid-2, .services-grid {
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .grid-three,
+    .grid-two,
+    .grid-2,
+    .services-grid {
         grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
 
-    /* Footer & Elemen Lain */
-    @media (max-width: 768px) {
-    /* 1. Ubah grid footer menjadi satu kolom agar tidak meluber */
     .footer-grid {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        text-align: center !important;
         gap: 40px !important;
+        text-align: center !important;
     }
 
-    /* 2. Pastikan sisi kanan footer (email/sosmed) berada di tengah */
     .footer-right {
-        text-align: center !important;
-        align-items: center !important;
         width: 100% !important;
-    }
-
-    /* 3. Sesuaikan ukuran font email agar pas di layar HP */
-    .footer-email {
-        font-size: 1.4rem !important; /* Perkecil sedikit agar tidak terpotong */
-        letter-spacing: 0.5px !important; /* Rapatkan sedikit jarak antar huruf */
-        word-wrap: break-word;
-        display: inline-block;
-        word-break: break-all; /* Jaga-jaga jika tetap tidak muat agar terpotong rapi */
-        width: 100%;
-    }
-
-    /* 4. Atur ulang sosmed agar rapi di tengah */
-    .social-links-footer {
+        align-items: center !important;
         text-align: center !important;
-        margin-top: 30px !important;
-        width: 100%;
     }
 
-    /* 5. Hilangkan garis vertikal dekoratif karena mengganggu layout mobile */
+    .footer-email {
+        display: inline-block;
+        width: 100%;
+        font-size: 1.4rem !important;
+        letter-spacing: 0.5px !important;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .social-links-footer {
+        width: 100%;
+        margin-top: 30px !important;
+        text-align: center !important;
+    }
+
     .vertical-line {
         display: none !important;
     }
 
-    /* 6. Meta footer (copyright) diatur ke tengah */
     .footer-meta-desktop {
+        display: flex !important;
         flex-direction: column !important;
         gap: 15px;
-        text-align: center !important;
+        width: 100%;
         margin-top: 60px !important;
+        text-align: center !important;
     }
-    
-    .section-padding { padding: 96px 0; } /* Ruang antar bagian lebih rapat di HP */
 
-@media (max-width: 768px) {
-    .section-padding { padding: 64px 0; }
+    .section-padding {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .testimonials-home,
+    .founder-strip,
+    .personal-note-section,
+    .about-quote-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+
+    .personal-note-wrapper.text-first {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .note-text,
+    .note-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .post-hero-image {
+        height: 240px;
+        margin-bottom: 50px;
+    }
+
+    .entry-image {
+        height: 210px;
+    }
+
+    .share-links-wrapper {
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        max-width: 300px;
+        margin: 20px auto 0;
+    }
+
+    .dot-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: calc(100% - 44px);
+    }
+
+    .navbar {
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links li {
+        margin: 4px 5px;
+    }
+
+    .lead-magnet-card {
+        padding: 36px 22px;
+        border-radius: 16px;
+    }
+
+    .lead-magnet-card h2 {
+        font-size: 2.2rem;
+    }
+
+    .lead-magnet-button {
+        width: 100%;
+        text-align: center;
+    }
 }
 
    /* Testimonials */
@@ -1388,24 +1473,6 @@ p, .sans-text, .service-list li {
         transform: none;
         transition: none;
     }
-}
-
-/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
-   One terracotta, one gold. Everything routes through these.
-   Values below use your official brand palette.
-   Prefer the softer, original terracotta? Swap --accent back
-   to #d89a7e on the line marked (A).                          */
-:root {
-    --bg-main:      #fcfbf9;   /* off-white body            */
-    --bg-alt:       #f7f5f2;   /* soft section background   */
-    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
-    --text-dark:    #2c2416;   /* brand charcoal            */
-    --text-body:    #5c5247;   /* readable body brown-grey  */
-    --text-light:   #8a7a66;   /* muted labels/captions     */
-    --accent:       #c17f5e;   /* (A) terracotta — brand    */
-    --gold:         #c9a96e;   /* muted champagne gold      */
-    --border:       #eceae6;   /* the missing token (bug)   */
-    --border-light: #eceae6;   /* keep alias for old rules  */
 }
        
 /* ---- 2. FIX THE INVISIBLE BORDER ------------------------
