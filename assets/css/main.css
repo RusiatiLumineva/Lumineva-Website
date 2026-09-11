@@ -1588,6 +1588,11 @@ p, .sans-text, .service-list li {
     .lead-magnet-card-visual { flex: 1 1 auto; max-width: 260px; }
 }    
 
+@media (prefers-reduced-motion: reduce) {
+    .lead-magnet-button { transition: none; }
+    .lead-magnet-button:hover { transform: none; }
+}
+
 /* Hero & thumbnail story: jaga rasio lanskap di layar kecil */
 @media (max-width: 768px) {
     .post-hero-image {
