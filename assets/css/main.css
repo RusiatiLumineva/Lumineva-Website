@@ -2,9 +2,13 @@
 :root {
     --bg-main: #fcfbf9;
     --bg-alt: #f7f5f2;
-    --text-dark: #1a1a1a;
-    --text-light: #666666;
-    --accent: #d89a7e; /* Muted Gold */
+    --bg-cream: #faf7f4;
+    --text-dark: #2c2416;
+    --text-body: #5c5247;
+    --text-light: #8a7a66;
+    --accent: #c17f5e;
+    --gold: #c9a96e;
+    --border: #eceae6;
     --border-light: #eceae6;
 }
 
