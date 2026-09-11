@@ -1,20 +1,11 @@
 /* Base Style */
-/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
-   One terracotta, one gold. Everything routes through these.
-   Values below use your official brand palette.
-   Prefer the softer, original terracotta? Swap --accent back
-   to #d89a7e on the line marked (A).                          */
 :root {
-    --bg-main:      #fcfbf9;   /* off-white body            */
-    --bg-alt:       #f7f5f2;   /* soft section background   */
-    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
-    --text-dark:    #2c2416;   /* brand charcoal            */
-    --text-body:    #5c5247;   /* readable body brown-grey  */
-    --text-light:   #8a7a66;   /* muted labels/captions     */
-    --accent:       #c17f5e;   /* (A) terracotta — brand    */
-    --gold:         #c9a96e;   /* muted champagne gold      */
-    --border:       #eceae6;   /* the missing token (bug)   */
-    --border-light: #eceae6;   /* keep alias for old rules  */
+    --bg-main: #fcfbf9;
+    --bg-alt: #f7f5f2;
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --accent: #d89a7e; /* Muted Gold */
+    --border-light: #eceae6;
 }
 
 * {
@@ -1399,6 +1390,24 @@ p, .sans-text, .service-list li {
     }
 }
 
+/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
+   One terracotta, one gold. Everything routes through these.
+   Values below use your official brand palette.
+   Prefer the softer, original terracotta? Swap --accent back
+   to #d89a7e on the line marked (A).                          */
+:root {
+    --bg-main:      #fcfbf9;   /* off-white body            */
+    --bg-alt:       #f7f5f2;   /* soft section background   */
+    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
+    --text-dark:    #2c2416;   /* brand charcoal            */
+    --text-body:    #5c5247;   /* readable body brown-grey  */
+    --text-light:   #8a7a66;   /* muted labels/captions     */
+    --accent:       #c17f5e;   /* (A) terracotta — brand    */
+    --gold:         #c9a96e;   /* muted champagne gold      */
+    --border:       #eceae6;   /* the missing token (bug)   */
+    --border-light: #eceae6;   /* keep alias for old rules  */
+}
+       
 /* ---- 2. FIX THE INVISIBLE BORDER ------------------------
    .service-box referenced an undefined --border → no border.
    Token above now defines it; this makes the intent explicit. */
