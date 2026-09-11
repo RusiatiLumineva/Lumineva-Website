@@ -1,15 +1,20 @@
 /* Base Style */
+/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
+   One terracotta, one gold. Everything routes through these.
+   Values below use your official brand palette.
+   Prefer the softer, original terracotta? Swap --accent back
+   to #d89a7e on the line marked (A).                          */
 :root {
-    --bg-main: #fcfbf9;
-    --bg-alt: #f7f5f2;
-    --bg-cream: #faf7f4;
-    --text-dark: #2c2416;
-    --text-body: #5c5247;
-    --text-light: #8a7a66;
-    --accent: #c17f5e;
-    --gold: #c9a96e;
-    --border: #eceae6;
-    --border-light: #eceae6;
+    --bg-main:      #fcfbf9;   /* off-white body            */
+    --bg-alt:       #f7f5f2;   /* soft section background   */
+    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
+    --text-dark:    #2c2416;   /* brand charcoal            */
+    --text-body:    #5c5247;   /* readable body brown-grey  */
+    --text-light:   #8a7a66;   /* muted labels/captions     */
+    --accent:       #c17f5e;   /* (A) terracotta — brand    */
+    --gold:         #c9a96e;   /* muted champagne gold      */
+    --border:       #eceae6;   /* the missing token (bug)   */
+    --border-light: #eceae6;   /* keep alias for old rules  */
 }
 
 * {
@@ -199,9 +204,24 @@ p, .sans-text, .service-list li {
 /* Hero Section */
 .hero-section {
     /* Hapus height: 80vh; Hapus display: flex; */
-    padding: 220px 0 120px; 
+    padding: 180px 0 80px; 
     text-align: center;
     background-color: #fff; /* Pastikan bersih */
+}
+
+.hero-section .cta-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 14px 24px;
+    border: 1px solid var(--accent);
+    color: var(--text-dark);
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.hero-section .cta-link:hover {
+    background-color: var(--accent);
+    color: #fff;
+    opacity: 1;
 }
 
 .hero-content {
@@ -1227,8 +1247,10 @@ p, .sans-text, .service-list li {
         margin-top: 60px !important;
     }
     
-    .section-padding { padding: 60px 0; } /* Ruang antar bagian lebih rapat di HP */
-}
+    .section-padding { padding: 96px 0; } /* Ruang antar bagian lebih rapat di HP */
+
+@media (max-width: 768px) {
+    .section-padding { padding: 64px 0; }
 }
 
    /* Testimonials */
@@ -1375,24 +1397,6 @@ p, .sans-text, .service-list li {
         transform: none;
         transition: none;
     }
-}
-
-/* ---- 1. UNIFIED BRAND TOKENS ----------------------------
-   One terracotta, one gold. Everything routes through these.
-   Values below use your official brand palette.
-   Prefer the softer, original terracotta? Swap --accent back
-   to #d89a7e on the line marked (A).                          */
-:root {
-    --bg-main:      #fcfbf9;   /* off-white body            */
-    --bg-alt:       #f7f5f2;   /* soft section background   */
-    --bg-cream:     #faf7f4;   /* warm cream (cards)        */
-    --text-dark:    #2c2416;   /* brand charcoal            */
-    --text-body:    #5c5247;   /* readable body brown-grey  */
-    --text-light:   #8a7a66;   /* muted labels/captions     */
-    --accent:       #c17f5e;   /* (A) terracotta — brand    */
-    --gold:         #c9a96e;   /* muted champagne gold      */
-    --border:       #eceae6;   /* the missing token (bug)   */
-    --border-light: #eceae6;   /* keep alias for old rules  */
 }
 
 /* ---- 2. FIX THE INVISIBLE BORDER ------------------------
