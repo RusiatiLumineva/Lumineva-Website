@@ -1477,7 +1477,7 @@ p, .sans-text, .service-list li {
 /* ==========================================================================
    Lead magnet card — Operations Audit Checklist
    ========================================================================== */
-.lead-magnet--card {
+.lead-magnet-card {
     position: relative;
     overflow: hidden;
     display: flex;
