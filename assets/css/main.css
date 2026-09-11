@@ -1474,98 +1474,98 @@ p, .sans-text, .service-list li {
     }
 }
 
-/* ==========================================================================
-   Lead magnet card — Operations Audit Checklist
-   ========================================================================== */
+/* =========================================
+   Lead Magnet Card
+   ========================================= */
+
 .lead-magnet-card {
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 48px;
+    overflow: hidden;
     padding: 60px 52px;
     border-radius: 22px;
-    background: var(--text-dark);
+    background-color: #1a1a1a;
+    color: #fcfbf9;
 }
 
 .lead-magnet-card::before {
-    content: '';
     position: absolute;
     top: -60px;
     right: -60px;
     width: 200px;
     height: 200px;
-    border: 2px solid rgba(212, 175, 55, .30);
+    border: 2px solid rgba(201, 169, 110, 0.3);
     border-radius: 50%;
+    content: '';
     pointer-events: none;
 }
 
-.lead-magnet-card-content {
+.lead-magnet-content {
     position: relative;
     z-index: 1;
-    flex: 1;
+    flex: 1 1 300px;
     min-width: 280px;
 }
 
 .lead-magnet-card .eyebrow {
     display: block;
     margin-bottom: 16px;
-    color: #d4af37;
+    color: var(--gold);
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
     font-size: 13px;
+    font-weight: 500;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
 .lead-magnet-card h2 {
     margin: 0 0 18px;
+    color: #fcfbf9;
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
     font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
     line-height: 1.05;
-    color: var(--bg-main);
 }
 
 .lead-magnet-card p {
     max-width: 460px;
     margin: 0 0 30px;
-    color: #cbbfae;
+    color: #ded4c8;
+    font-family: 'Inter', sans-serif;
     font-size: 1.05rem;
+    font-weight: 300;
     line-height: 1.7;
 }
 
 .lead-magnet-button {
     display: inline-block;
     padding: 16px 36px;
-    border: none;
+    border: 0;
     border-radius: 9px;
-    background: var(--accent);
-    color: var(--text-dark);
+    background-color: var(--accent);
+    color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
     font-size: 15px;
-    letter-spacing: .5px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
     text-decoration: none;
     cursor: pointer;
-    transition: background .3s ease, transform .3s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .lead-magnet-button:hover {
-    background: #c8876a;
+    background-color: #c8876a;
     transform: translateY(-2px);
 }
 
 .lead-magnet-button:focus-visible {
     outline: 3px solid #f4d7c8;
     outline-offset: 4px;
-}
-
-.lead-magnet-button:disabled {
-    opacity: .6;
-    cursor: not-allowed;
-    transform: none;
 }
 
 .lead-magnet-card-visual {
@@ -1577,20 +1577,58 @@ p, .sans-text, .service-list li {
 }
 
 .lead-magnet-card-visual img {
-    width: 100%;
     display: block;
+    width: 100%;
+    height: auto;
 }
 
+/* Tablet and mobile */
 @media (max-width: 768px) {
-    .lead-magnet-card { padding: 44px 28px; gap: 36px; }
-    .lead-magnet-card-content { min-width: 0; }
-    .lead-magnet-card p { max-width: none; }
-    .lead-magnet-card-visual { flex: 1 1 auto; max-width: 260px; }
-}    
+    .lead-magnet-card {
+        gap: 36px;
+        padding: 44px 28px;
+    }
 
+    .lead-magnet-content {
+        min-width: 0;
+    }
+
+    .lead-magnet-card p {
+        max-width: none;
+    }
+
+    .lead-magnet-card-visual {
+        flex: 1 1 auto;
+        max-width: 260px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 420px) {
+    .lead-magnet-card {
+        padding: 36px 22px;
+        border-radius: 16px;
+    }
+
+    .lead-magnet-card h2 {
+        font-size: 2.2rem;
+    }
+
+    .lead-magnet-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .lead-magnet-button { transition: none; }
-    .lead-magnet-button:hover { transform: none; }
+    .lead-magnet-button {
+        transition: none;
+    }
+
+    .lead-magnet-button:hover {
+        transform: none;
+    }
 }
 
 /* Hero & thumbnail story: jaga rasio lanskap di layar kecil */
