@@ -1562,6 +1562,12 @@ p, .sans-text, .service-list li {
     outline-offset: 4px;
 }
 
+.lead-magnet-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .lead-magnet-card-visual {
     position: relative;
     z-index: 1;
