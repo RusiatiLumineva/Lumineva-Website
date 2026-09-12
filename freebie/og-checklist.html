@@ -1,0 +1,103 @@
+<title>Checklist OG Image</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCFBF9;
+    --sand:#F5EFE6;
+    --line:#E4D8C6;
+    --ink:#1A1612;
+    --ink-soft:#6E6459;
+    --ink-faint:#9C9186;
+    --terracotta:#A35A2F;
+    --terracotta-tint:#F1E1D5;
+    --terracotta-soft:#D89A7E;
+    --gold-deco:#D4AF37;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:var(--cream); }
+  .canvas{
+    position:relative;
+    width:1200px; height:630px;
+    background:var(--cream);
+    overflow:hidden;
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    color:var(--ink);
+  }
+  .arc{ position:absolute; top:-220px; right:-220px; width:620px; height:620px; opacity:.5; }
+  .arc2{ position:absolute; bottom:-260px; left:-180px; width:520px; height:520px; opacity:.3; }
+
+  .content{ position:absolute; left:80px; top:96px; width:600px; }
+  .kicker{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta-soft); font-weight:600; margin:0 0 22px; }
+  h1{
+    font-family:'Cormorant Garamond',serif; font-weight:400; line-height:1.08;
+    font-size:52px; margin:0; text-wrap:balance;
+  }
+  p.sub{
+    font-size:17px; line-height:1.6; color:var(--ink-soft); max-width:44ch; margin:26px 0 0;
+  }
+  .footer{ position:absolute; left:80px; bottom:56px; display:flex; align-items:center; gap:12px; }
+  .brand{ font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); }
+  .dot{ color:var(--gold-deco); }
+  .free{ font-size:13px; color:var(--ink-soft); }
+  .domain{ font-size:13px; color:var(--terracotta); }
+
+  /* mini browser thumbnail */
+  .thumb{
+    position:absolute; right:96px; top:150px; width:360px;
+    background:var(--cream); border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 20px 50px rgba(26,22,18,.16), 0 4px 12px rgba(26,22,18,.06);
+    transform:rotate(4deg);
+    overflow:hidden;
+  }
+  .chrome{ height:30px; background:var(--sand); border-bottom:1px solid var(--line); display:flex; align-items:center; padding:0 12px; }
+  .url{ background:var(--cream); border:1px solid var(--line); border-radius:20px; font-size:10px; color:var(--ink-faint); padding:4px 12px; }
+  .body{ padding:20px 22px 22px; }
+  .mk{ font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:var(--terracotta-soft); font-weight:600; margin:0 0 6px; }
+  .mt{ font-family:'Cormorant Garamond',serif; font-size:22px; margin:0 0 12px; line-height:1.05; }
+  .mt i{ display:block; font-style:normal; color:var(--terracotta-soft); }
+  .row{ display:flex; gap:10px; align-items:flex-start; padding:7px 0; border-top:1px solid var(--line); font-size:11.5px; }
+  .row:first-of-type{ border-top:none; }
+  .box{ width:13px; height:13px; border:1.3px solid var(--ink-faint); border-radius:3px; flex:none; margin-top:2px; }
+  .box.on{ background:var(--terracotta); border-color:var(--terracotta); position:relative; }
+  .box.on::after{ content:""; position:absolute; left:2.5px; top:4.5px; width:6px; height:3px; border-left:1.4px solid var(--cream); border-bottom:1.4px solid var(--cream); transform:rotate(-45deg); }
+  .row.done span{ color:var(--ink-faint); text-decoration:line-through; text-decoration-color:var(--line); }
+</style>
+
+<div class="canvas">
+  <svg class="arc" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="310" cy="310" r="140" fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="310" cy="310" r="210" fill="none" stroke="#D89A7E" stroke-width="1"/>
+    <circle cx="310" cy="310" r="280" fill="none" stroke="#D4AF37" stroke-width="1"/>
+  </svg>
+  <svg class="arc2" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="260" cy="260" r="120" fill="none" stroke="#D89A7E" stroke-width="1"/>
+    <circle cx="260" cy="260" r="190" fill="none" stroke="#D4AF37" stroke-width="1"/>
+  </svg>
+
+  <div class="content">
+    <p class="kicker">THE OPERATIONS AUDIT</p>
+    <h1>Tick it. Watch<br>where clarity breaks.</h1>
+    <p class="sub">The Operations Audit Checklist is now live in the browser — for coaches auditing their inquiry, booking, and onboarding paths.</p>
+  </div>
+
+  <div class="footer">
+    <span class="brand">LUMINEVA AURORAE</span>
+    <span class="dot">·</span>
+    <span class="free">Free, interactive</span>
+    <span class="dot">·</span>
+    <span class="domain">luminevaaurorae.com</span>
+  </div>
+
+  <div class="thumb">
+    <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
+    <div class="body">
+      <p class="mk">OPERATIONS AUDIT</p>
+      <h2 class="mt">Booking path<i>4 / 7 checked</i></h2>
+      <div class="row done"><div class="box on"></div><span>Is the booking link current?</span></div>
+      <div class="row done"><div class="box on"></div><span>Is the intake form connected?</span></div>
+      <div class="row"><div class="box"></div><span>Who handles rescheduling?</span></div>
+    </div>
+  </div>
+</div>
