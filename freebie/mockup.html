@@ -1,0 +1,171 @@
+<title>Checklist Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FCFBF9;
+    --sand:#F5EFE6;
+    --line:#E4D8C6;
+    --ink:#1A1612;
+    --ink-soft:#6E6459;
+    --ink-faint:#9C9186;
+    --terracotta:#A35A2F;
+    --terracotta-tint:#F1E1D5;
+    --terracotta-soft:#D89A7E;
+    --gold-deco:#D4AF37;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; background:var(--cream); }
+  .canvas{
+    position:relative;
+    width:1600px; height:1000px;
+    background:var(--cream);
+    overflow:hidden;
+    font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
+    color:var(--ink);
+  }
+  .arcs{ position:absolute; top:-260px; right:-260px; width:900px; height:900px; opacity:.55; }
+  .arcs2{ position:absolute; bottom:-320px; left:-320px; width:760px; height:760px; opacity:.35; }
+
+  .runner{
+    position:absolute; top:56px; left:80px; right:80px;
+    display:flex; justify-content:space-between;
+    font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  .runner b{ color:var(--ink-soft); font-weight:600; letter-spacing:.18em; }
+
+  .stage{
+    position:absolute; left:80px; top:150px; width:520px;
+  }
+  .kicker{ font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--terracotta-soft); font-weight:600; margin:0 0 22px; }
+  h1{
+    font-family:'Cormorant Garamond',serif; font-weight:400; line-height:1.03;
+    font-size:64px; margin:0;
+  }
+  h1 span{ display:block; color:var(--terracotta-soft); }
+  .lede{
+    font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-soft);
+    font-size:26px; line-height:1.45; margin:30px 0 0; max-width:26ch;
+  }
+  .rule{ width:56px; height:3px; background:var(--gold-deco); margin:34px 0; }
+  .cap{
+    font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint);
+  }
+  .cap b{ color:var(--ink-soft); }
+  .dot{ color:var(--gold-deco); margin:0 10px; }
+
+  /* browser chrome cards */
+  .card{
+    position:absolute; width:420px; border-radius:14px;
+    background:var(--cream); border:1px solid var(--line);
+    box-shadow:0 18px 46px rgba(26,22,18,.14), 0 3px 10px rgba(26,22,18,.06);
+    overflow:hidden;
+  }
+  .chrome{
+    height:34px; background:var(--sand); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; padding:0 14px;
+  }
+  .url{
+    background:var(--cream); border:1px solid var(--line); border-radius:20px;
+    font-size:11px; color:var(--ink-faint); padding:5px 14px; letter-spacing:.02em;
+  }
+  .body{ padding:22px 24px 26px; }
+  .mini-kicker{ font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--terracotta-soft); font-weight:600; margin:0 0 8px; }
+  .mini-title{ font-family:'Cormorant Garamond',serif; font-size:26px; margin:0; line-height:1.05; }
+  .mini-title i{ display:block; font-style:normal; color:var(--terracotta-soft); }
+  .mini-sub{ font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ink-soft); font-size:13.5px; margin:10px 0 0; }
+  .mini-nav{ margin-top:16px; border-top:1px solid var(--line); padding-top:10px; display:grid; gap:6px; }
+  .mini-nav div{ display:flex; justify-content:space-between; font-size:11px; color:var(--ink-soft); }
+  .mini-nav span:first-child b{ color:var(--terracotta); margin-right:8px; }
+
+  .sec-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }
+  .sec-head h3{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:19px; margin:0; }
+  .sec-head span{ font-size:11px; color:var(--ink-faint); }
+  .sec-head b{ color:var(--terracotta); }
+  .bar{ height:3px; background:var(--line); border-radius:2px; margin-bottom:14px; }
+  .bar i{ display:block; height:100%; width:57%; background:var(--terracotta-soft); border-radius:2px; }
+  .row{ display:flex; gap:12px; align-items:flex-start; padding:9px 0; border-top:1px solid var(--line); font-size:13px; }
+  .row:first-of-type{ border-top:none; }
+  .box{ width:15px; height:15px; border:1.4px solid var(--ink-faint); border-radius:3px; flex:none; margin-top:2px; }
+  .box.on{ background:var(--terracotta); border-color:var(--terracotta); position:relative; }
+  .box.on::after{ content:""; position:absolute; left:3px; top:5.5px; width:7px; height:3.5px; border-left:1.6px solid var(--cream); border-bottom:1.6px solid var(--cream); transform:rotate(-45deg); }
+  .row.done span{ color:var(--ink-faint); text-decoration:line-through; text-decoration-color:var(--line); }
+
+  .snap-kicker{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--terracotta-soft); font-weight:600; margin-bottom:6px; }
+  .snap-h{ font-family:'Cormorant Garamond',serif; font-size:20px; margin:0 0 12px; }
+  .snap-count{ font-family:'Cormorant Garamond',serif; font-size:34px; }
+  .snap-count small{ font-family:'Inter'; font-size:12px; color:var(--ink-faint); margin-left:6px; }
+  .outcome{ margin-top:14px; padding:12px 14px; border-left:2px solid var(--gold-deco); background:var(--terracotta-tint); border-radius:0 8px 8px 0; }
+  .outcome .tag{ font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:5px; }
+  .outcome .msg{ font-family:'Cormorant Garamond',serif; font-size:15px; line-height:1.3; }
+  .chart{ margin-top:12px; display:grid; gap:6px; }
+  .chart .r{ display:grid; grid-template-columns:64px 1fr 24px; align-items:center; gap:8px; font-size:9.5px; color:var(--ink-soft); }
+  .chart .t{ height:5px; background:var(--line); border-radius:4px; overflow:hidden; }
+  .chart .f{ height:100%; background:var(--gold-deco); }
+</style>
+
+<div class="canvas">
+  <svg class="arcs" viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="450" cy="450" r="200" fill="none" stroke="#D4AF37" stroke-width="1"/>
+    <circle cx="450" cy="450" r="300" fill="none" stroke="#D89A7E" stroke-width="1"/>
+    <circle cx="450" cy="450" r="400" fill="none" stroke="#D4AF37" stroke-width="1"/>
+  </svg>
+  <svg class="arcs2" viewBox="0 0 760 760" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="380" cy="380" r="180" fill="none" stroke="#D89A7E" stroke-width="1"/>
+    <circle cx="380" cy="380" r="280" fill="none" stroke="#D4AF37" stroke-width="1"/>
+  </svg>
+
+  <div class="runner"><b>LUMINEVA AURORAE</b><span>FOR COACHES</span></div>
+
+  <div class="stage">
+    <p class="kicker">THE OPERATIONS AUDIT · NOW INTERACTIVE</p>
+    <h1>Tick it.<span>See the gaps.</span></h1>
+    <p class="lede">The same audit, live in the browser — check what's true, and watch your starting point build itself.</p>
+    <div class="rule"></div>
+    <p class="cap"><b>OPERATIONS AUDIT CHECKLIST</b><span class="dot">·</span>INTERACTIVE · WEB</p>
+  </div>
+
+  <!-- card 1: cover, behind left -->
+  <div class="card" style="left:760px; top:120px; transform:rotate(-4deg); z-index:1;">
+    <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
+    <div class="body">
+      <p class="mini-kicker">THE OPERATIONS AUDIT</p>
+      <h2 class="mini-title">Operations Audit<i>Checklist</i></h2>
+      <p class="mini-sub">A simple audit of your inquiry, booking, and onboarding paths.</p>
+      <div class="mini-nav">
+        <div><span><b>01</b>Inquiry</span><span>0/7</span></div>
+        <div><span><b>02</b>Booking</span><span>0/7</span></div>
+        <div><span><b>03</b>Client onboarding</span><span>0/8</span></div>
+        <div><span><b>04</b>Ownership</span><span>0/7</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- card 2: mid-check, front center -->
+  <div class="card" style="left:940px; top:300px; transform:rotate(2deg); z-index:3; width:440px;">
+    <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
+    <div class="body">
+      <div class="sec-head"><h3>Booking path</h3><span><b>4</b> / 7</span></div>
+      <div class="bar"><i></i></div>
+      <div class="row done"><div class="box on"></div><span>Is the booking link current?</span></div>
+      <div class="row done"><div class="box on"></div><span>Is the intake form connected to the booking step?</span></div>
+      <div class="row"><div class="box"></div><span>Who handles rescheduling or exceptions?</span></div>
+      <div class="row"><div class="box"></div><span>Is the next step after booking documented?</span></div>
+    </div>
+  </div>
+
+  <!-- card 3: interpretation, behind right -->
+  <div class="card" style="left:1160px; top:150px; transform:rotate(5deg); z-index:2; width:400px;">
+    <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
+    <div class="body">
+      <p class="snap-kicker">WHERE TO START</p>
+      <h3 class="snap-h">Interpretation</h3>
+      <div class="snap-count">24 / 29<small>checked</small></div>
+      <div class="outcome">
+        <div class="tag">MOSTLY BOOKING GAPS</div>
+        <div class="msg">Start with a <b>Booking Path Build</b>.</div>
+      </div>
+    </div>
+  </div>
+</div>
