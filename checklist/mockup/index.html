@@ -1,4 +1,11 @@
-<title>Checklist Mockup</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://luminevaaurorae.com/checklist/">
+<title>Preview: Operations Audit Checklist | Lumineva Aurorae</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,10 +23,20 @@
     --gold-deco:#D4AF37;
   }
   *{ box-sizing:border-box; }
-  html,body{ margin:0; padding:0; background:var(--cream); }
+  html,body{ margin:0; padding:0; height:100%; background:var(--cream); overflow:hidden; }
+
+  /* the canvas keeps its fixed design size; .fit scales it to the viewport */
+  .fit{
+    position:fixed; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--cream);
+  }
   .canvas{
     position:relative;
     width:1600px; height:1000px;
+    flex:none;
+    transform:scale(var(--s,1));
+    transform-origin:center center;
     background:var(--cream);
     overflow:hidden;
     font-family:'Inter',ui-sans-serif,system-ui,sans-serif;
@@ -76,6 +93,10 @@
   }
 
   /* browser chrome cards */
+  .c1{ left:760px;  top:120px; transform:rotate(-4deg); z-index:1; }
+  .c2{ left:940px;  top:300px; transform:rotate(2deg);  z-index:3; width:440px; }
+  .c3{ left:1160px; top:150px; transform:rotate(5deg);  z-index:2; width:400px; }
+
   .card{
     position:absolute; width:420px; border-radius:14px;
     background:var(--cream); border:1px solid var(--line);
@@ -123,7 +144,36 @@
   .chart .r{ display:grid; grid-template-columns:64px 1fr 24px; align-items:center; gap:8px; font-size:9.5px; color:var(--ink-soft); }
   .chart .t{ height:5px; background:var(--line); border-radius:4px; overflow:hidden; }
   .chart .f{ height:100%; background:var(--gold-deco); }
+
+  /* ---------- portrait / narrow screens ----------
+     A taller canvas with its own composition, so scaling to fit a phone
+     lands near 1:1 instead of shrinking the landscape poster to nothing. */
+  @media (max-aspect-ratio: 9/10){
+    .canvas{ width:440px; height:880px; }
+
+    .arcs{ top:-150px; right:-190px; width:460px; height:460px; }
+    .arcs2{ bottom:-200px; left:-200px; width:380px; height:380px; }
+
+    .runner{ top:28px; left:32px; right:32px; font-size:9px; letter-spacing:.14em; }
+
+    .stage{ left:32px; top:76px; width:376px; }
+    .kicker{ font-size:9px; letter-spacing:.14em; margin:0 0 14px; }
+    h1{ font-size:40px; }
+    .lede{ font-size:17px; margin:18px 0 0; max-width:24ch; }
+    .rule{ margin:22px 0; width:44px; height:2px; }
+    .cap{ font-size:9px; letter-spacing:.1em; }
+    .mockup-audit-cta{ margin-top:20px; padding:13px 20px; font-size:10px; }
+
+    /* one card leads, two peek behind — three shrunk cards read as noise here */
+    .card{ transform-origin:top left; }
+    .c1{ left:34px;  top:474px; transform:rotate(-3deg) scale(.80); z-index:1; }
+    .c3{ left:150px; top:504px; transform:rotate(4deg)  scale(.80); z-index:2; }
+    .c2{ left:20px;  top:596px; transform:rotate(1deg)  scale(.86); z-index:3; }
+  }
 </style>
+</head>
+<body>
+<div class="fit">
 
 <div class="canvas">
   <svg class="arcs" viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +203,7 @@
   </div>
 
   <!-- card 1: cover, behind left -->
-  <div class="card" style="left:760px; top:120px; transform:rotate(-4deg); z-index:1;">
+  <div class="card c1">
     <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
     <div class="body">
       <p class="mini-kicker">THE OPERATIONS AUDIT</p>
@@ -169,7 +219,7 @@
   </div>
 
   <!-- card 2: mid-check, front center -->
-  <div class="card" style="left:940px; top:300px; transform:rotate(2deg); z-index:3; width:440px;">
+  <div class="card c2">
     <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
     <div class="body">
       <div class="sec-head"><h3>Booking path</h3><span><b>4</b> / 7</span></div>
@@ -182,7 +232,7 @@
   </div>
 
   <!-- card 3: interpretation, behind right -->
-  <div class="card" style="left:1160px; top:150px; transform:rotate(5deg); z-index:2; width:400px;">
+  <div class="card c3">
     <div class="chrome"><div class="url">luminevaaurorae.com/checklist</div></div>
     <div class="body">
       <p class="snap-kicker">WHERE TO START</p>
@@ -195,3 +245,22 @@
     </div>
   </div>
 </div>
+</div>
+<script>
+(function(){
+  var fit = document.querySelector('.fit');
+  var canvas = document.querySelector('.canvas');
+  function apply(){
+    canvas.style.setProperty('--s', 1);            // measure unscaled
+    var w = canvas.offsetWidth, h = canvas.offsetHeight;
+    var s = Math.min(fit.clientWidth / w, fit.clientHeight / h);
+    canvas.style.setProperty('--s', s);
+  }
+  apply();
+  addEventListener('resize', apply);
+  addEventListener('orientationchange', apply);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(apply); }
+})();
+</script>
+</body>
+</html>
