@@ -1666,6 +1666,31 @@ p, .sans-text, .service-list li {
     height: auto;
 }
 
+.lead-magnet-preview-caption {
+    margin: 14px 0 0;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.lead-magnet-preview-caption a {
+    color: #ded4c8;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(222, 212, 200, 0.45);
+    transition:
+        color 0.3s ease,
+        text-decoration-color 0.3s ease;
+}
+
+.lead-magnet-preview-caption a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+.lead-magnet-preview-caption a:focus-visible {
+    outline: 3px solid #f4d7c8;
+    outline-offset: 3px;
+}
+
 /* Tablet and mobile */
 @media (max-width: 768px) {
     .lead-magnet-card {
