@@ -55,6 +55,26 @@
   .cap b{ color:var(--ink-soft); }
   .dot{ color:var(--gold-deco); margin:0 10px; }
 
+    .mockup-audit-cta {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 15px 24px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease;
+  }
+
+  .mockup-audit-cta:hover {
+      background: var(--ink);
+      color: var(--cream);
+  }
+
   /* browser chrome cards */
   .card{
     position:absolute; width:420px; border-radius:14px;
@@ -124,6 +144,12 @@
     <p class="lede">The same audit, live in the browser — check what's true, and watch your starting point build itself.</p>
     <div class="rule"></div>
     <p class="cap"><b>OPERATIONS AUDIT CHECKLIST</b><span class="dot">·</span>INTERACTIVE · WEB</p>
+    <a
+        href="/freebie/checklist/"
+        class="mockup-audit-cta"
+    >
+        Take the Interactive Audit →
+    </a>
   </div>
 
   <!-- card 1: cover, behind left -->
