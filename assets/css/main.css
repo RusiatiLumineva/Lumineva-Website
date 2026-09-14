@@ -1751,3 +1751,186 @@ p, .sans-text, .service-list li {
         height: 210px;
     }
 }
+
+/* ---- 7. ABOUT PAGE — PROPORTION PASS ---------------------
+   Fixes measured on the live page at 1440px:
+   - 230px of dead space between the headline and the first text
+   - portrait vertically centred against a text column twice its height
+   - "Who this is for" squeezed into .container-small: a 305px text
+     column beside a 255px photo, on a 1440px screen
+   - h3 in section two (2.8rem) larger than the h2 above it (2.2rem)
+   Scoped to About; no other page uses these selectors.            */
+
+/* 7.1 Hero — the hero's bottom padding and the grid's top padding
+       stacked. One owns the gap now, not both.                    */
+.about-hero {
+    padding: 170px 0 0;
+}
+
+.about-hero .eyebrow {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.about-hero h1 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-hero .container::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 1px;
+    background-color: var(--accent);
+    margin: 60px auto 0;
+}
+
+/* 7.2 Story — portrait sticks beside the copy instead of floating
+       in the middle of it.                                        */
+.about-story .grid-2 {
+    grid-template-columns: 0.82fr 1fr;
+    gap: 88px;
+    align-items: start;
+    padding: 96px 0 0;
+}
+
+.about-image-container {
+    align-self: start;
+}
+
+.about-text {
+    max-width: 62ch;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    line-height: 1.25;
+    margin-bottom: 34px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.85;
+    margin-bottom: 22px;
+}
+
+/* 7.3 "How I Work" — lifted out of the narrow text column into its
+       own band, which also evens out the two columns above it.     */
+.about-method {
+    padding: 88px 0 128px;
+}
+
+.about-method .personal-note {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-method .personal-note p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 22px;
+}
+
+.personal-note {
+    margin-top: 0;
+    padding: 48px 56px;
+    background-color: var(--bg-alt);
+    border-left: 2px solid var(--accent);
+}
+
+.personal-note h3 {
+    margin-bottom: 22px;
+    color: var(--text-light);
+}
+
+.personal-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* 7.4 "Who this is for" — the two columns needed room to exist */
+.personal-note-section .container-small {
+    max-width: 1140px;
+}
+
+.personal-note-wrapper.text-first {
+    align-items: start;
+    gap: 96px;
+}
+
+.note-text {
+    flex: 1.1 1 0;
+    max-width: 58ch;
+}
+
+.note-text h3 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+}
+
+.note-text p {
+    font-size: 1rem;
+    margin-bottom: 22px;
+}
+
+.note-text .cta-link {
+    display: inline-block;
+    margin-top: 18px;
+}
+
+.note-image {
+    flex: 0.9 1 0;
+    max-width: 460px;
+    align-self: flex-start;
+}
+
+/* 7.5 Both portraits, one treatment */
+.about-img,
+.note-image img {
+    filter: sepia(20%) contrast(105%);
+}
+
+/* 7.6 Closing quote — a held line, not a full-width banner */
+.about-quote-section .large-quote {
+    font-size: 2.2rem;
+    line-height: 1.35;
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding-top: 120px;
+    }
+
+    .about-hero .container::after {
+        margin-top: 40px;
+    }
+
+    .about-story .grid-2 {
+        padding-top: 56px;
+    }
+
+    /* the reading-measure caps are a desktop concern; on one column
+       they just leave a ragged right edge */
+    .about-text,
+    .note-text {
+        max-width: 100%;
+    }
+
+    .about-method {
+        padding: 48px 0 56px;
+    }
+
+    .personal-note {
+        padding: 32px 28px;
+    }
+
+    .note-text h3 {
+        font-size: 1.9rem;
+    }
+
+    .about-quote-section .large-quote {
+        font-size: 1.7rem;
+    }
+}
