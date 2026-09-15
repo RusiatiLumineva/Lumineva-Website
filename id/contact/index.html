@@ -17,7 +17,7 @@
 		
 		<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<title>Kontak | Lumineva Aurorae — Mitra Operasional & Sistem untuk Coach dan Founder</title>
+    	<title>Kontak | Lumineva Aurorae — Mitra Operasional & Sistem</title>
     	<!-- Premium Fonts -->
     	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
     	<link rel="stylesheet" href="../../assets/css/main.css">
@@ -29,15 +29,15 @@
    		<link rel="apple-touch-icon" href="../../images/logo.png">
 
 		<!-- SEO -->
-		<meta name="description" content="Mari mulai percakapan. Kini menerima kemitraan operasional baru untuk 2026, ceritakan visi Anda dan saya membalas dalam 48 jam.">
+		<meta name="description" content="Ceritakan kepada Lumineva Aurorae bagian mana dari perjalanan klien coaching Anda yang membutuhkan lebih banyak kejelasan: inquiry, pemesanan, onboarding, atau area operasional lainnya.">
 		<link rel="canonical" href="https://luminevaaurorae.com/id/contact/">
 		<link rel="alternate" hreflang="en" href="https://luminevaaurorae.com/contact/">
 		<link rel="alternate" hreflang="id" href="https://luminevaaurorae.com/id/contact/">
 		<link rel="alternate" hreflang="x-default" href="https://luminevaaurorae.com/contact/">
 		<!-- Open Graph / social share -->
 		<meta property="og:type" content="website">
-		<meta property="og:title" content="Kontak | Lumineva Aurorae — Mitra Operasional & Sistem untuk Coach dan Founder">
-		<meta property="og:description" content="Mari mulai percakapan. Kini menerima kemitraan operasional baru untuk 2026, ceritakan visi Anda dan saya membalas dalam 48 jam.">
+		<meta property="og:title" content="Kontak | Lumineva Aurorae — Mitra Operasional & Sistem">
+		<meta property="og:description" content="Dukungan praktis untuk operasional dan sistem bagi coach yang menginginkan workflow inquiry, pemesanan, dan onboarding klien yang lebih jelas.">
 		<meta property="og:url" content="https://luminevaaurorae.com/id/contact/">
 		<meta property="og:image" content="https://luminevaaurorae.com/images/og-share.png">
 		<meta name="twitter:card" content="summary_large_image">
@@ -52,19 +52,17 @@
     				<li><a href="/id/about/">Tentang</a></li>
     				<li><a href="/id/offerings/">Layanan</a></li>
     				<li><a href="/id/stories/">Cerita</a></li>
-    				<li><a href="/id/contact/" class="active">Kontak</a></li>
-    				<li class="lang-switch-mobile" style="margin-left: 20px; border-left: 1px solid #d89a7e; padding-left: 20px;">
-        				<a href="../../contact/" class="lang-link">EN</a>
-    				</li>
+    				<li><a href="/id/contact/" class="active" aria-current="page">Kontak</a></li>
+					<li class="language-switch"> <a href="../../contact/" class="lang-link" lang="en">EN</a> </li>
 				</ul>
 		</nav>
 
     <main>
         <section class="contact-hero">
             <div class="container">
-                <span class="eyebrow">Koneksi</span>
+                <span class="eyebrow">Terhubung</span>
                 <h1 class="display-serif">Mulai<em>Percakapan</em></h1>
-                <p class="contact-sub">Saat ini saya membuka kerja sama baru untuk tahun 2026. Silakan bagikan beberapa detail tentang visi Anda di bawah ini, dan saya akan menghubungi Anda kembali dalam waktu 48 jam.</p>
+                <p class="contact-sub">Saat ini saya menerima sejumlah kecil proyek operasional dan sistem untuk coach. Ceritakan bagian mana dari perjalanan klien Anda yang ingin Anda buat lebih jelas: inquiry, pemesanan, onboarding, atau area operasional lainnya. Saya akan meninjau detailnya dan memberikan respons secara langsung.</p>
             </div>
         </section>
 
@@ -74,36 +72,39 @@
             		<input type="hidden" name="access_key" value="6aa3ad60-fcbc-4a6f-bbab-29e14036c953">
             		<input type="hidden" name="redirect" value="https://luminevaaurorae.com/id/success/">
             		<input type="hidden" name="subject" value="Kontak Baru - Lumineva (Bahasa Indonesia)">
+					<input type="hidden" name="from_name" value="Website Lumineva Aurorae" >
+
+					<div class="form-trap" aria-hidden="true"> <label for="website">Website</label> <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" > </div>
             
             		<div class="form-row">
                 		<div class="input-group">
-                    		<label>Nama Anda</label>
-                    		<input type="text" name="name" placeholder="Bagaimana saya dapat menyapa Anda?" required>
+                    		<label for="name">Nama Anda</label> <input type="text" name="name" placeholder="Bagaimana saya sebaiknya menyapa Anda?" autocomplete="name" required>
                 		</div>
                 		<div class="input-group">
-                    		<label>Alamat Email</label>
-                    		<input type="email" name="email" placeholder="Di mana saya bisa menghubungi Anda?" required>
+                    		<label for="email"> Alamat Email </label> <input type="email" id="email" name="email" placeholder="Di mana saya dapat menghubungi Anda?" autocomplete="email" required>
                 		</div>
             		</div>
 
             		<div class="input-group">
-                		<label>Layanan mana yang Anda minati?</label>
-                		<select name="service" required>
-                    		<option value="" disabled selected>Pilih layanan...</option>
-                    		<option value="partnership">Kemitraan Operasional & Sistem</option>
-                    		<option value="clarity">Sesi Kejelasan Terfokus</option>
-                    		<option value="custom">Kolaborasi Khusus</option>
+                		<label>Di bagian mana dukungan paling Anda butuhkan?</label>
+                		<select id="service" name="service" required>
+                    		<option value="" disabled selected> Pilih alurnya... </option>
+                    		<option value="inquiry"> Proses inquiry </option>
+                    		<option value="booking"> Proses pemesanan </option>
+                    		<option value="onboarding"> Onboarding klien </option>
+							<option value="not-sure"> Belum yakin </option>
+							<option value="other"> Area operasional lainnya </option>
                 		</select>
             		</div>
 
             		<div class="input-group">
-                		<label>Ceritakan tentang Visi Anda</label>
-                		<textarea name="message" rows="5" placeholder="Apa yang sedang Anda bangun?" required></textarea>
+                		<label for="message"> Ceritakan apa yang sedang terjadi saat ini</label>
+                		<textarea id="message" name="message" rows="5" placeholder="Apa yang saat ini terasa tidak jelas, berulang, atau terlalu bergantung pada Anda?" required></textarea>
             		</div>
 
             		<div class="form-footer">
-                		<button type="submit" class="btn-submit">Kirim Permintaan</button>
-                		<p class="form-note">Harap menunggu balasan dalam waktu 48 jam.</p>
+                		<button type="submit" class="btn-submit">Mulai Percakapan</button>
+                		<p class="form-note">Saya akan meninjau detailnya dan memberikan respons secara langsung.</p>
             		</div>
         		</form> 
     		</div>
@@ -124,7 +125,7 @@
         <div class="footer-right">
             <span class="eyebrow">Contact</span>
             <a href="mailto:admin@luminevaaurorae.com" class="footer-email">admin@luminevaaurorae.com</a>
-            <p class="contact-sub">Interested in exploring a partnership?</p>
+            <p class="contact-sub">Tertarik membuat perjalanan klien Anda menjadi lebih jelas?</p>
             
             <div class="footer-links">
                 <p class="social-links-footer">
