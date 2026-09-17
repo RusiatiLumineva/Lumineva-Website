@@ -1934,3 +1934,35 @@ p, .sans-text, .service-list li {
         font-size: 1.7rem;
     }
 }
+
+/* ---- 8. HOMEPAGE HERO — LET THE CTA BREATHE --------------
+   Measured at 1440px: the gaps ran 30 / 40 / 0 down the hero,
+   so the button sat flush against the paragraph above it while
+   the two paragraphs had 40px between them. The qualifier line
+   also had no rule at all, so it ran the full 800px of
+   .hero-content beside a 550px paragraph.                     */
+
+.hero-sub {
+    margin-bottom: 32px;
+}
+
+.hero-audience {
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    color: #8a8a8a;
+}
+
+.hero-content .btn-luxury {
+    margin-top: 56px;
+}
+
+@media (max-width: 768px) {
+    .hero-content .btn-luxury {
+        margin-top: 40px;
+    }
+}
