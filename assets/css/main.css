@@ -1966,3 +1966,53 @@ p, .sans-text, .service-list li {
         margin-top: 40px;
     }
 }
+
+/* ─────────────────────────────────────────────
+   Stories pagination (5 story per halaman)
+   Dipakai oleh assets/js/stories-pagination.js
+   ───────────────────────────────────────────── */
+.journal-pagination {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    padding-top: 50px;
+    border-top: 1px solid var(--border-light);
+}
+
+.pagination-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.pagination-link:hover {
+    color: var(--accent);
+}
+
+.pagination-prev { justify-self: start; }
+.pagination-next { justify-self: end; text-align: right; }
+
+.pagination-status {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .journal-pagination {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 24px;
+    }
+    .pagination-status {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        text-align: center;
+    }
+    .pagination-link { letter-spacing: 2px; white-space: nowrap; }
+}
