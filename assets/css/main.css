@@ -2016,3 +2016,84 @@ p, .sans-text, .service-list li {
     }
     .pagination-link { letter-spacing: 2px; white-space: nowrap; }
 }
+
+/* ─────────────────────────────────────────────
+   Stories: tampilan kartu (3 per baris)
+   Hanya berlaku di halaman daftar /stories/ dan /id/stories/.
+   Desktop 3 kolom, tablet 2 kolom, HP 1 kolom.
+   ───────────────────────────────────────────── */
+.journal-feed .container-journal {
+    max-width: 1200px;
+    width: 90%;
+    padding: 0 0 150px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 70px 40px;
+    align-items: start;
+}
+
+.journal-feed .journal-entry {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.journal-feed .entry-image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 22px;
+}
+
+.journal-feed .entry-meta {
+    font-size: 0.6rem;
+    gap: 0;
+    margin-bottom: 14px;
+}
+
+.journal-feed .entry-title {
+    font-size: 1.7rem;
+    line-height: 1.25;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+
+.journal-feed .entry-title a:hover {
+    color: var(--accent);
+}
+
+.journal-feed .entry-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.journal-feed .journal-entry .cta-link {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.journal-feed .journal-pagination {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+    .journal-feed .container-journal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .journal-feed .container-journal {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .journal-feed .entry-title {
+        font-size: 1.6rem;
+    }
+}
