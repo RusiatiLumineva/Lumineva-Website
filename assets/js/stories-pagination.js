@@ -2,7 +2,7 @@
    Stories Pagination — Lumineva Aurorae
    Simpan sebagai: assets/js/stories-pagination.js
 
-   Menampilkan 5 story per halaman di /stories/ dan /id/stories/.
+   Menampilkan 6 story per halaman (2 baris x 3 kartu) di /stories/ dan /id/stories/.
    Halaman berikutnya dibuka lewat ?page=2, ?page=3, dst.
 
    Cara pakai:
@@ -16,7 +16,7 @@
 (function () {
     'use strict';
 
-    var PER_PAGE = 5;
+    var PER_PAGE = 6;
 
     var run = function () {
         var list = document.querySelector('.container-journal');
