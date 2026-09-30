@@ -32,11 +32,19 @@
             '.testimonial-card, .value-card, .service-box, .journal-entry, .service-item'
         );
 
+        var cardSelector = '.testimonial-card, .value-card, .service-box, .journal-entry, .service-item';
+
         var prepare = function (el) {
             el.classList.add('reveal');
         };
 
-        singles.forEach(prepare);
+        // Section yang berisi kartu tidak ikut disembunyikan:
+        // kartunya sudah punya efek sendiri. Kalau section-nya juga
+        // disembunyikan, daftar panjang (mis. Stories) bisa tetap kosong.
+        singles.forEach(function (el) {
+            if (el.querySelector(cardSelector)) return;
+            prepare(el);
+        });
 
         // Stagger: beri jeda 90ms antar kartu dalam parent yang sama
         var groups = {};
@@ -56,7 +64,8 @@
                 }
             });
         }, {
-            threshold: 0.12,
+            // 0 = muncul begitu ujungnya masuk layar, berapa pun tinggi elemennya
+            threshold: 0,
             rootMargin: '0px 0px -40px 0px'
         });
 
