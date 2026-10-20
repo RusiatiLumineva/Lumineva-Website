@@ -2097,3 +2097,123 @@ p, .sans-text, .service-list li {
         font-size: 1.6rem;
     }
 }
+
+/* ---- 9. SELECTED WORK — /work/ and /id/work/ --------------
+   A text-led listing. The portfolio images in images/ are deck
+   slides, legible full-screen but noise at card size, so the
+   entries carry their own weight instead of a thumbnail.      */
+
+.work-hero {
+    padding: 170px 0 0;
+    text-align: center;
+}
+
+.work-hero .eyebrow {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.work-hero h1 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.work-intro {
+    max-width: 580px;
+    margin: 36px auto 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: #666;
+}
+
+.work-hero .container::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 1px;
+    background-color: var(--accent);
+    margin: 60px auto 0;
+}
+
+.work-feed .container-journal {
+    padding-bottom: 0;
+}
+
+.work-entry {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+}
+
+.work-entry:last-child {
+    border-bottom: none;
+}
+
+.work-entry .entry-meta {
+    color: var(--accent);
+    margin-bottom: 18px;
+}
+
+.work-entry .entry-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    max-width: 620px;
+}
+
+.work-entry .entry-excerpt {
+    max-width: 62ch;
+    margin-bottom: 18px;
+}
+
+.work-skills {
+    max-width: 620px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #a8a09a;
+    margin: 0 0 28px;
+}
+
+.work-closing {
+    padding: 120px 0 128px;
+    border-top: 1px solid var(--border-light);
+}
+
+.work-closing .section-title {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .work-hero {
+        padding-top: 120px;
+    }
+
+    .work-hero .container::after {
+        margin-top: 40px;
+    }
+
+    .work-intro {
+        margin-top: 28px;
+    }
+
+    .work-entry {
+        padding: 48px 0;
+    }
+
+    .work-entry .entry-title {
+        font-size: 1.6rem;
+        max-width: 100%;
+    }
+
+    .work-entry .entry-excerpt {
+        max-width: 100%;
+    }
+
+    .work-closing {
+        padding: 64px 0;
+    }
+}
