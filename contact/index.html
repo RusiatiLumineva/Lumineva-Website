@@ -23,7 +23,7 @@
     	<!-- Opsi tambahan untuk Apple/iPhone agar terlihat seperti App mewah -->
    		<link rel="apple-touch-icon" href="../images/logo.png">
 		<!-- SEO -->
-		<meta name="description" content="Tell Lumineva Aurorae which part of your coaching client journey needs more clarity: inquiries, booking, onboarding, or another operational area.">
+		<meta name="description" content="Tell Lumineva Aurorae which stage of your coaching client journey needs attention: inquiries, booking, or onboarding. Personal reply within one business day.">
 		<link rel="canonical" href="https://luminevaaurorae.com/contact/">
 		<link rel="alternate" hreflang="en" href="https://luminevaaurorae.com/contact/">
 		<link rel="alternate" hreflang="id" href="https://luminevaaurorae.com/id/contact/">
@@ -55,7 +55,7 @@
             <div class="container">
                 <span class="eyebrow">Connect</span>
                 <h1 class="display-serif">Begin the <em>Conversation</em></h1>
-                <p class="contact-sub">Currently accepting a small number of operations and systems projects for coaches. Tell me which part of your client journey you would like to make clearer: inquiries, booking, onboarding, or another operational area. I will review the details and respond personally.</p>
+                <p class="contact-sub">Tell me which stage of your client journey needs attention: inquiries, booking, or onboarding. I read every message myself and reply within one business day.</p>
             </div>
         </section>
 
@@ -72,42 +72,70 @@
     					<label for="website">Website</label>
     					<input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
 					</div>
-    
+
     				<div class="form-row">
         				<div class="input-group">
             				<label for="name">Your Name</label>
-            				<input type="text" name="name" placeholder="How shall I address you?" autocomplete="name" required>
+            				<input type="text" id="name" name="name" placeholder="How shall I address you?" autocomplete="name" required>
         				</div>
         				<div class="input-group">
-            				<label for="email" >Email Address</label>
+            				<label for="email">Email Address</label>
             				<input type="email" id="email" name="email" placeholder="Where can I reach you?" autocomplete="email" required>
         				</div>
     				</div>
 
     				<div class="input-group">
-        				<label for="service">Where would support be most useful?</label>
+        				<label for="service">Which stage needs attention?</label>
         				<select id="service" name="service" required>
-            				<option value="" disabled selected>Select a path...</option>
-            				<option value="inquiry">Inquiry process</option>
-            				<option value="booking">Booking process</option>
-            				<option value="onboarding">Client onboarding</option>
+            				<option value="" disabled selected>Select a stage...</option>
+            				<option value="inquiry">Inquiries and follow-up (Inquiry Path Build)</option>
+            				<option value="booking">Getting from interest to a booked call (Booking Path Build)</option>
+            				<option value="onboarding">Everything after a client pays (Client Onboarding Build)</option>
 							<option value="not-sure">Not sure yet</option>
-							<option value="other">Other operational area</option>
         				</select>
     				</div>
 
     				<div class="input-group">
         				<label for="message">Tell me what is happening now</label>
-        				<textarea id="message" name="message" rows="5" placeholder="What currently feels unclear, repetitive, or too dependent on you?" required></textarea>
+        				<textarea id="message" name="message" rows="5" placeholder="Where do things slip today? Which tools do you use, and what still depends on you remembering?" required></textarea>
     				</div>
 
     				<div class="form-footer">
         				<button type="submit" class="btn-submit">Start the conversation</button>
-        				<p class="form-note">I will review the details and respond personally.</p>
+        				<p class="form-note">I reply personally within one business day.</p>
     				</div>
 				</form>
 			</div>
         </section>
+
+		<!-- What happens next -->
+		<section class="section-padding bg-soft" id="what-happens-next">
+			<div class="container">
+				<h2 class="section-title">What Happens Next</h2>
+				<div class="grid-three">
+					<div class="value-card">
+						<span class="card-num">01</span>
+						<h3>I read and reply</h3>
+						<p>I read your message myself and reply within one business day, often with one or two short questions.</p>
+					</div>
+					<div class="value-card">
+						<span class="card-num">02</span>
+						<h3>A 30-minute call</h3>
+						<p>If it looks like a fit, you walk me through how that stage works today. No preparation is needed.</p>
+					</div>
+					<div class="value-card">
+						<span class="card-num">03</span>
+						<h3>A clear recommendation</h3>
+						<p>After the call, you receive a short summary with the build I recommend and a confirmed price.</p>
+					</div>
+				</div>
+				<p class="hero-sub center" style="margin-top: 60px; margin-bottom: 24px;">Prefer to pick a time now?</p>
+				<p class="center">
+					<a href="https://calendly.com/luminevaaurorae/discovery-call" class="btn-luxury" target="_blank" rel="noopener">Book a 30-minute call</a>
+				</p>
+			</div>
+		</section>
+
     </main>
 
     <!-- Footer -->
